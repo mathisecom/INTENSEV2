@@ -198,6 +198,12 @@
     "featured_product_xMTtkb": {
       "type": "featured-product",
       "blocks": {
+        "liquid_GMyEh4": {
+          "type": "liquid",
+          "settings": {
+            "liquid": ""
+          }
+        },
         "title_wxytAV": {
           "type": "title",
           "settings": {
@@ -260,6 +266,18 @@
             "payment_button_text_color": ""
           }
         },
+        "liquid_NYqBfh": {
+          "type": "liquid",
+          "settings": {
+            "liquid": ""
+          }
+        },
+        "liquid_YygTjc": {
+          "type": "liquid",
+          "settings": {
+            "liquid": ""
+          }
+        },
         "collapsible_text_GtC8qA": {
           "type": "collapsible_text",
           "settings": {
@@ -282,6 +300,7 @@
         }
       },
       "block_order": [
+        "liquid_GMyEh4",
         "title_wxytAV",
         "badges_AXxQcX",
         "price_8abEYn",
@@ -291,6 +310,8 @@
         "variant_picker_Mq7mjx",
         "quantity_selector_mCYnPa",
         "buy_buttons_yEFjKM",
+        "liquid_NYqBfh",
+        "liquid_YygTjc",
         "collapsible_text_GtC8qA",
         "collapsible_text_ze7mPw"
       ],
