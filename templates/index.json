@@ -435,7 +435,7 @@
           "settings": {
             "icon": "none",
             "custom_icon": "shopify://shop_images/Titre_19.png",
-            "icon_width": 22,
+            "icon_width": 24,
             "title": "Features",
             "content": "<p><strong>Intense™ Pillow</strong> is made of high-quality memory foam with a hypoallergenic bamboo cover. Its ergonomic 27° angle, scientifically proven, naturally supports the female anatomy and helps relieve back pain.</p><p><strong>Dimensions:</strong> 23.6 × 11.8 × 5.9 in<br/><br/><strong>Weight:</strong> 2.6 lbs<br/><br/><strong>Color:</strong> Subtle anthracite gray that blends perfectly with any decor. Stable, non-slip design that stays securely in place.</p><p>Designed to <strong>enhance intimate comfort</strong>, <strong>make natural movement easier</strong>, and let you experience intimacy without compromise. The cover is removable and machine washable. Built to last for years of pleasure and comfort.</p>",
             "page": ""
@@ -445,7 +445,8 @@
           "type": "collapsible_text",
           "settings": {
             "icon": "none",
-            "icon_width": 20,
+            "custom_icon": "shopify://shop_images/Titre_26.png",
+            "icon_width": 24,
             "title": "Shipping Information",
             "content": "<p>Order Today, Shipped Tomorrow. Delivery in <strong>5-7 Days </strong>with Tracking.</p>",
             "page": ""
