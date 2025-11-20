@@ -336,7 +336,7 @@
           "settings": {
             "icon": "none",
             "custom_icon": "shopify://shop_images/Titre_19.png",
-            "icon_width": 20,
+            "icon_width": 22,
             "title": "Title",
             "content": "<p>Share some content to your customers about your products.</p>",
             "page": ""
