@@ -474,6 +474,157 @@
         "input_text_color": ""
       }
     },
+    "ss_scrolling_images_iThxdh": {
+      "type": "ss-scrolling-images",
+      "blocks": {
+        "image_nPkUrp": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Sans_titre_800_x_800_px_29.webp",
+            "url": ""
+          }
+        },
+        "image_Ff4wpn": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/vSNqq8tMM_5b0c86f1-ef5b-4948-aa33-bf3d5affa725.jpg",
+            "url": ""
+          }
+        },
+        "image_UjcGj9": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/n0_MG8gs_4e81fc2d-c6f2-44a9-a527-de2d313ab84b.jpg",
+            "url": ""
+          }
+        },
+        "image_Pqfy9t": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Sans_titre_800_x_800_px_33_deca6ea1-ac52-46ba-adff-890b7c598d41.webp",
+            "url": ""
+          }
+        },
+        "image_nn647p": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Sans_titre_800_x_800_px_28_4465c774-b3f5-40e4-b4de-b39f80e8c2b8.webp",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_nPkUrp",
+        "image_Ff4wpn",
+        "image_UjcGj9",
+        "image_Pqfy9t",
+        "image_nn647p"
+      ],
+      "name": "SS - Scrolling images",
+      "settings": {
+        "heading": "<p><strong>Over 6,000 Satisfied Couples</strong></p>",
+        "heading_custom": false,
+        "heading_font": "josefin_sans_n4",
+        "heading_size": 24,
+        "heading_height": 100,
+        "heading_align": "center",
+        "slider_speed": 13,
+        "slider_gap": 10,
+        "slider_gap_mobile": 10,
+        "slider_mt": 50,
+        "slider_direction": "left",
+        "pause_hover": false,
+        "image_width_desktop": 300,
+        "image_width_mobile": 180,
+        "image_height_desktop": 400,
+        "image_height_mobile": 160,
+        "image_radius": 10,
+        "use_content": false,
+        "content_position": "center",
+        "content_max_width": 340,
+        "content_max_width_mobile": 340,
+        "content_padding_vertical": 30,
+        "content_padding_horizontal": 30,
+        "content_distance": 60,
+        "content_radius": 10,
+        "content_border_thickness": 0,
+        "use_shadow": true,
+        "text": "<p>+29.000 people love our product</p>",
+        "text_custom": false,
+        "text_font": "assistant_n4",
+        "text_size": 24,
+        "text_height": 130,
+        "heading_color": "#000000",
+        "content_bg": "#FFFFFF",
+        "content_border_color": "#000000",
+        "text_color": "#000000",
+        "background_color": "#FFFFFF",
+        "background_gradient": "",
+        "border_color": "#000000",
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top": 36,
+        "padding_bottom": 0,
+        "padding_horizontal": 0,
+        "padding_horizontal_mobile": 0,
+        "full_width": true,
+        "content_width": 120,
+        "border_thickness": 0,
+        "lazy": true
+      }
+    },
+    "press_HqRcNe": {
+      "type": "press",
+      "blocks": {
+        "quote_T3UgWq": {
+          "type": "quote",
+          "settings": {
+            "logo_width": 100,
+            "author": "",
+            "content": "Write some content about what they says about your store.",
+            "show_rating": true,
+            "rating": 4
+          }
+        },
+        "quote_dNhQFM": {
+          "type": "quote",
+          "settings": {
+            "logo_width": 100,
+            "author": "",
+            "content": "Write some content about what they says about your store.",
+            "show_rating": true,
+            "rating": 4
+          }
+        },
+        "quote_e7bTA8": {
+          "type": "quote",
+          "settings": {
+            "logo_width": 100,
+            "author": "",
+            "content": "Write some content about what they says about your store.",
+            "show_rating": true,
+            "rating": 4
+          }
+        }
+      },
+      "block_order": [
+        "quote_T3UgWq",
+        "quote_dNhQFM",
+        "quote_e7bTA8"
+      ],
+      "name": "Press",
+      "settings": {
+        "full_width": true,
+        "content_size": "medium",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "logo_item_background": "",
+        "logo_item_border": ""
+      }
+    },
     "media_with_text_mJFh3d": {
       "type": "media-with-text",
       "blocks": {
@@ -744,6 +895,8 @@
     "slideshow_HMktcQ",
     "multi_column_ARmNNd",
     "featured_product_xMTtkb",
+    "ss_scrolling_images_iThxdh",
+    "press_HqRcNe",
     "media_with_text_mJFh3d",
     "scrolling_text_F8rTta",
     "text_with_icons_VxQ3xh",
