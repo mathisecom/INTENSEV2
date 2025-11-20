@@ -480,6 +480,7 @@
         "image_TkxM9p": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/111411bdb2cd461bbf19802b0c391261.webp",
             "media_width": 50,
             "media_position": "start",
             "text_position": "place-self-center text-center",
