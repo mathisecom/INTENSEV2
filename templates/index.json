@@ -362,6 +362,12 @@
             "text": "<h1><strong>Intense Cushion</strong></h1>"
           }
         },
+        "liquid_QwhfBN": {
+          "type": "liquid",
+          "settings": {
+            "liquid": "<div class=\"product-info__block-item\" data-block-id=\"liquid_a6t8Lb\" data-block-type=\"liquid\">\n  <div class=\"product-info__liquid\">\n    <div class=\"main-product__block main-product__block-custom_text\">\n      <div class=\"m-product-text\">\n        <div class=\"rte\">\n          <p>✓ 27° angle for perfect positioning</p>\n          <p>✓ 91% report more responsive partners</p>\n          <p>✓ Looks like regular décor – discreet</p>\n          <p>✓ Makes uncomfortable positions enjoyable</p>\n          <p>✓ Discreet packaging</p>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>"
+          }
+        },
         "title_wxytAV": {
           "type": "title",
           "disabled": true,
@@ -444,6 +450,7 @@
         "liquid_mUw8UY",
         "liquid_GMyEh4",
         "text_RnB8WN",
+        "liquid_QwhfBN",
         "title_wxytAV",
         "price_8abEYn",
         "rating_fkmE9a",
