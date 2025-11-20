@@ -446,8 +446,8 @@
           "settings": {
             "icon": "none",
             "icon_width": 20,
-            "title": "Title",
-            "content": "<p>Share some content to your customers about your products.</p>",
+            "title": "Shipping Information",
+            "content": "<p>Order Today, Shipped Tomorrow. Delivery in <strong>5-7 Days </strong>with Tracking.</p>",
             "page": ""
           }
         }
