@@ -276,6 +276,12 @@
     "featured_product_xMTtkb": {
       "type": "featured-product",
       "blocks": {
+        "liquid_mUw8UY": {
+          "type": "liquid",
+          "settings": {
+            "liquid": ""
+          }
+        },
         "liquid_GMyEh4": {
           "type": "liquid",
           "settings": {
@@ -353,6 +359,7 @@
         }
       },
       "block_order": [
+        "liquid_mUw8UY",
         "liquid_GMyEh4",
         "title_wxytAV",
         "price_8abEYn",
