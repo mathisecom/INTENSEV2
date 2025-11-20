@@ -169,6 +169,74 @@
         "background_gradient": "linear-gradient(60deg, rgba(60, 65, 68, 1), rgba(23, 29, 33, 1) 98%)"
       }
     },
+    "rich_text_TJmCDd": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_CDeAyR": {
+          "type": "heading",
+          "settings": {
+            "text": "Before / After Intense Pillow",
+            "heading_tag": "h2",
+            "text_color": "",
+            "gradient": ""
+          }
+        }
+      },
+      "block_order": [
+        "heading_CDeAyR"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "full_width": true,
+        "content_width": "small",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "slideshow_HMktcQ": {
+      "type": "slideshow",
+      "blocks": {
+        "image_cnpJet": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Titre_64.jpg",
+            "mobile_image": "shopify://shop_images/Titre_64_c5011940-1cbd-4dc2-a1b5-db7ceef2ff16.jpg",
+            "content_max_width": 780,
+            "mobile_text_position": "place-self-center text-center",
+            "desktop_text_position": "sm:place-self-center sm:text-center",
+            "subheading": "",
+            "title": "",
+            "heading_tag": "h0",
+            "button_text": "",
+            "button_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "background": "",
+            "background_gradient": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_cnpJet"
+      ],
+      "settings": {
+        "full_width": true,
+        "allow_transparent_header": true,
+        "show_initial_transition": false,
+        "image_size": "auto",
+        "controls_type": "numbers",
+        "transition_type": "fade_with_text",
+        "autoplay": true,
+        "cycle_speed": 6,
+        "background": "#f2f2f2",
+        "background_gradient": "linear-gradient(60deg, rgba(60, 65, 68, 1), rgba(23, 29, 33, 1) 98%)"
+      }
+    },
     "multi_column_ARmNNd": {
       "type": "multi-column",
       "blocks": {
@@ -177,9 +245,9 @@
           "settings": {
             "image": "shopify://shop_images/Sans_titre_800_x_800_px_29.webp",
             "column_size": "3",
-            "title": "Column title",
+            "title": "Sophie & Daniel",
             "heading_tag": "h4",
-            "content": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "content": "<p><em>\"We didn’t realize how much discomfort was holding us back until we tried it. Suddenly everything felt smoother, easier, and so much more connected. She’s more confident, I’m more attentive, and our moments feel intimate again — not rushed or stressful.\"</em></p>",
             "link_url": "",
             "link_text": "",
             "link_style": "link"
@@ -190,9 +258,9 @@
           "settings": {
             "image": "shopify://shop_images/Sans_titre_800_x_800_px_28.webp",
             "column_size": "3",
-            "title": "Column title",
+            "title": "Hannah & Lucas",
             "heading_tag": "h4",
-            "content": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "content": "<p><em>\"Before, things sometimes felt complicated… like we had to work around the pain. But with Intense, everything just flows. She feels supported, relaxed, and I can see the difference instantly. It brought back that closeness we were missing.\"</em></p>",
             "link_url": "",
             "link_text": "",
             "link_style": "link"
@@ -266,7 +334,7 @@
         "gap": "medium",
         "text_alignment": "center",
         "subheading": "",
-        "title": "Featured content",
+        "title": "Our Customers Say It Best",
         "content": "",
         "background": "",
         "background_gradient": "",
@@ -288,8 +356,15 @@
             "liquid": "<div class=\"main-product__block main-product__block-custom_liquid\"> <div class=\"m-product-text\"> <div class=\"main-product__block main-product__block-custom_liquid\"> <div class=\"m-product-text\"> <div class=\"main-product__block main-product__block-custom_liquid\"> <div class=\"m-product-text\"> <div class=\"product-info__liquid\"> <a class=\"image-size\" style=\"display: flex; align-items: center; gap: 8px;\"> <img src=\"https://cdn.shopify.com/s/files/1/0776/3751/7627/files/avis.png?v=1687213619\" alt=\"Étoiles\" width=\"63\" height=\"13\"> <span class=\"text-size\">Rated <b>4.8/5</b> based on 6,380 reviews</span> </a> </div> </div> </div> </div> </div> </div> </div>"
           }
         },
+        "text_RnB8WN": {
+          "type": "text",
+          "settings": {
+            "text": "<h1><strong>Intense Cushion</strong></h1>"
+          }
+        },
         "title_wxytAV": {
           "type": "title",
+          "disabled": true,
           "settings": {
             "heading_tag": "h2"
           }
@@ -368,6 +443,7 @@
       "block_order": [
         "liquid_mUw8UY",
         "liquid_GMyEh4",
+        "text_RnB8WN",
         "title_wxytAV",
         "price_8abEYn",
         "rating_fkmE9a",
@@ -647,6 +723,8 @@
     "slideshow",
     "ss_scrolling_logo_cloud_5_NVpYhF",
     "slideshow_irgQDP",
+    "rich_text_TJmCDd",
+    "slideshow_HMktcQ",
     "multi_column_ARmNNd",
     "featured_product_xMTtkb",
     "media_with_text_mJFh3d",
