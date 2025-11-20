@@ -1223,29 +1223,69 @@
         "166442457738b23caf-0": {
           "type": "item",
           "settings": {
-            "title": "Do you ship overseas?",
-            "content": "<p>Yes, we ship all over the world. Shipping costs will apply, and will be added at checkout. We run discounts and promotions all year, so stay tuned for exclusive deals.</p>"
+            "title": "Why is the 27° angle so important?",
+            "content": "<p>The precise 27° angle was scientifically designed to allow optimal positioning, release tension, and promote deeper connection between partners. This angle ensures natural alignment and stable support during every use.</p>"
           }
         },
         "166442457738b23caf-1": {
           "type": "item",
           "settings": {
-            "title": "How long will it take to get my orders?",
-            "content": "<p>It depends on where you are. Orders processed here will take 5-7 business days to arrive. Overseas deliveries can take anywhere from 7-16 days. Delivery details will be provided in your confirmation email.</p>"
+            "title": "How is this pillow different from a normal one?",
+            "content": "<p>It’s a versatile ergonomic wellness product. It improves posture, relieves back pressure, maintains the perfect angle, and blends seamlessly into your home, without looking like an “intimate product.”</p>"
           }
         },
         "166442457738b23caf-2": {
           "type": "item",
           "settings": {
-            "title": "Any question?",
-            "content": "<p>You can contact us through our contact page! We will be happy to assist you.</p>"
+            "title": "Is it comfortable for back or hip pain?",
+            "content": "<p>Yes! The high-density memory foam combined with its thoughtful angle reduces pressure points, making every position more comfortable and accessible, even for those with physical discomfort.</p>"
+          }
+        },
+        "item_JdpFKP": {
+          "type": "item",
+          "settings": {
+            "title": "Does the pillow stay stable during use?",
+            "content": "<p>Absolutely. It features a non-slip base that keeps it securely in place and prevents movement that could interrupt the moment.</p>"
+          }
+        },
+        "item_Dyi9Rr": {
+          "type": "item",
+          "settings": {
+            "title": "Does it work for all body types?",
+            "content": "<p>Yes, the viscoelastic foam adapts to different body shapes while maintaining the 27° angle — ensuring balanced and effective comfort for most couples.</p>"
+          }
+        },
+        "item_z9xgjr": {
+          "type": "item",
+          "settings": {
+            "title": "Is the product discreet in the bedroom?",
+            "content": "<p>Yes, completely. It looks like a stylish design or decorative pillow rather than an explicit accessory. Its elegant look makes it easy to blend naturally into your bedroom.</p>"
+          }
+        },
+        "item_EF3man": {
+          "type": "item",
+          "settings": {
+            "title": "How long does delivery take?",
+            "content": "<p>Delivery typically takes <strong>5 to 8 business days</strong> after shipping. You’ll receive a tracking number to monitor your order anytime.</p>"
+          }
+        },
+        "item_HaMbzV": {
+          "type": "item",
+          "settings": {
+            "title": "Is the product shipped discreetly?",
+            "content": "<p>Yes. The packaging is completely anonymous, with no indication of what’s inside. On your bank statement, the purchase will appear under a neutral category such as <strong>Health/Wellness</strong>, ensuring your privacy.</p>"
           }
         }
       },
       "block_order": [
         "166442457738b23caf-0",
         "166442457738b23caf-1",
-        "166442457738b23caf-2"
+        "166442457738b23caf-2",
+        "item_JdpFKP",
+        "item_Dyi9Rr",
+        "item_z9xgjr",
+        "item_EF3man",
+        "item_HaMbzV"
       ],
       "settings": {
         "full_width": false,
