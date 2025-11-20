@@ -699,11 +699,11 @@
       "name": "Scrolling text",
       "settings": {
         "full_width": true,
-        "text": "Promotion text",
+        "text": "Ultimate comfort, effortless connection.",
         "text_size": "xsmall",
         "text_style": "fill",
         "scrolling_mode": "auto",
-        "scrolling_speed": 10,
+        "scrolling_speed": 8,
         "background": "#890d20",
         "background_gradient": "",
         "text_color": "#ffffff",
@@ -717,46 +717,60 @@
           "type": "item",
           "settings": {
             "icon": "picto-coupon",
-            "mobile_icon_width": 24,
-            "icon_width": 32,
+            "mobile_icon_width": 36,
+            "icon_width": 36,
             "icon_background_type": "circle",
             "icon_background": "",
             "icon_color": "",
-            "title": "Free shipping",
-            "content": "<p>Free worldwide shipping and returns - customs and duties taxes included</p>"
+            "title": "Perfect support for every position",
+            "content": ""
           }
         },
         "item_dm44yx": {
           "type": "item",
           "settings": {
             "icon": "picto-coupon",
-            "mobile_icon_width": 24,
-            "icon_width": 32,
+            "mobile_icon_width": 36,
+            "icon_width": 36,
             "icon_background_type": "circle",
             "icon_background": "",
             "icon_color": "",
-            "title": "Customer service",
-            "content": "<p>We are available from monday to friday to answer your questions.</p>"
+            "title": "Comfort without compromise",
+            "content": ""
           }
         },
         "item_gpBm4e": {
           "type": "item",
           "settings": {
             "icon": "picto-coupon",
-            "mobile_icon_width": 24,
-            "icon_width": 32,
+            "mobile_icon_width": 36,
+            "icon_width": 36,
             "icon_background_type": "circle",
             "icon_background": "",
             "icon_color": "",
-            "title": "Secure payment",
-            "content": "<p>Your payment information is processed securely.</p>"
+            "title": "Discreet and stylish design",
+            "content": ""
+          }
+        },
+        "item_tzzYp7": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-coupon",
+            "mobile_icon_width": 36,
+            "icon_width": 36,
+            "icon_background_type": "circle",
+            "icon_background": "",
+            "icon_color": "",
+            "title": "Easy to store and clean",
+            "content": ""
           }
         }
       },
       "block_order": [
         "item_3DmdmJ",
         "item_dm44yx",
-        "item_gpBm4e"
+        "item_gpBm4e",
+        "item_tzzYp7"
       ],
       "name": "Text with icons",
       "settings": {
@@ -784,8 +798,8 @@
             "icon": "none",
             "icon_width": 48,
             "subheading": "",
-            "title": "Heading",
-            "content": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
+            "title": "Discover new ways to enjoy together",
+            "content": "<p><strong>The Intense™ Pillow </strong>supports your movements, gently aligns your posture, and helps make every position feel comfortable and smooth. Enjoy relaxing, stretching, reading, or just spending quality time together, with more comfort and ease than ever before. </p><p><strong>With our exclusive eBook — “50 Ways to Connect,” you’ll explore new ways to surprise your partner and keep your relationship exciting and playful.</strong></p>",
             "link_text": "BUY NOW",
             "link_url": "",
             "background": "#890d20",
