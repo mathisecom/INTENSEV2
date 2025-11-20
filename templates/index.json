@@ -1275,6 +1275,13 @@
             "title": "Is the product shipped discreetly?",
             "content": "<p>Yes. The packaging is completely anonymous, with no indication of what’s inside. On your bank statement, the purchase will appear under a neutral category such as <strong>Health/Wellness</strong>, ensuring your privacy.</p>"
           }
+        },
+        "item_LgM4Ag": {
+          "type": "item",
+          "settings": {
+            "title": "What if it doesn’t work?",
+            "content": "<p><strong>Intense™</strong> offers a <strong>30-day money-back guarantee</strong>. Most users notice a difference from the very first night. If that’s not the case for you, returns are simple and hassle-free.</p>"
+          }
         }
       },
       "block_order": [
@@ -1285,7 +1292,8 @@
         "item_Dyi9Rr",
         "item_z9xgjr",
         "item_EF3man",
-        "item_HaMbzV"
+        "item_HaMbzV",
+        "item_LgM4Ag"
       ],
       "settings": {
         "full_width": false,
