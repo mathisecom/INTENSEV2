@@ -108,9 +108,9 @@
         "card_width_desktop": 130,
         "card_width_mobile": 100,
         "heading_color": "#121212",
-        "layout_bg_color": "#FFFFFF",
+        "layout_bg_color": "#ffffff",
         "layout_border_color": "#121212",
-        "background_color": "#FFFFFF",
+        "background_color": "#ffffff",
         "border_color": "#121212",
         "margin_top": 0,
         "margin_bottom": 0,
@@ -278,9 +278,8 @@
       "blocks": {
         "liquid_GMyEh4": {
           "type": "liquid",
-          "disabled": true,
           "settings": {
-            "liquid": "<div class=\"product-info__liquid\">\n            <div style=\"display:flex;align-items:center;font-family:Arial,sans-serif;color:#333;\">\n  <div style=\"display:flex;margin-right:6px;\">\n    <span style=\"font-size:18px;color:#0FB87F;margin-right:2px;\">★</span>\n    <span style=\"font-size:18px;color:#0FB87F;margin-right:2px;\">★</span>\n    <span style=\"font-size:18px;color:#0FB87F;margin-right:2px;\">★</span>\n    <span style=\"font-size:18px;color:#0FB87F;margin-right:2px;\">★</span>\n    <span style=\"font-size:18px;color:#0FB87F;margin-right:2px;\">★</span>\n  </div>\n  <span style=\"font-size:15px;font-weight:500;\">Excellent (4,8/5) – Avis clients</span>\n</div>\n          </div>"
+            "liquid": "<div class=\"main-product__block main-product__block-custom_liquid\"> <div class=\"m-product-text\"> <div class=\"main-product__block main-product__block-custom_liquid\"> <div class=\"m-product-text\"> <div class=\"main-product__block main-product__block-custom_liquid\"> <div class=\"m-product-text\"> <div class=\"product-info__liquid\"> <a class=\"image-size\" style=\"display: flex; align-items: center; gap: 8px;\"> <img src=\"https://cdn.shopify.com/s/files/1/0776/3751/7627/files/avis.png?v=1687213619\" alt=\"Étoiles\" width=\"63\" height=\"13\"> <span class=\"text-size\">Rated <b>4.8/5</b> based on 6,380 reviews</span> </a> </div> </div> </div> </div> </div> </div> </div>"
           }
         },
         "title_wxytAV": {
