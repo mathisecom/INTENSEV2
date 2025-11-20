@@ -51,6 +51,82 @@
         "background_gradient": "linear-gradient(60deg, rgba(60, 65, 68, 1), rgba(23, 29, 33, 1) 98%)"
       }
     },
+    "ss_scrolling_logo_cloud_5_NVpYhF": {
+      "type": "ss-scrolling-logo-cloud-5",
+      "blocks": {
+        "image_K9Ltt4": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/images.avif",
+            "url": ""
+          }
+        },
+        "image_qRAL7h": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Womenshealthlogo_svg.avif",
+            "url": ""
+          }
+        },
+        "image_DgfebY": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Men_s_Health_svg.avif",
+            "url": ""
+          }
+        },
+        "image_y6jHB9": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/elle-logo.webp",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_K9Ltt4",
+        "image_qRAL7h",
+        "image_DgfebY",
+        "image_y6jHB9"
+      ],
+      "name": "SS - Scrolling logo cloud #5",
+      "settings": {
+        "layout_radius": 30,
+        "layout_border_thickness": 0,
+        "heading": "<p>AS SEEN ON</p>",
+        "heading_custom": false,
+        "heading_font": "josefin_sans_n4",
+        "heading_size": 18,
+        "heading_size_mobile": 10,
+        "heading_height": 130,
+        "scrolling_velocity": 24,
+        "scrolling_velocity_mobile": 22,
+        "scrolling_direction": "left",
+        "pause_hover": false,
+        "scrolling_gap": 70,
+        "scrolling_gap_mobile": 30,
+        "card_width_desktop": 130,
+        "card_width_mobile": 100,
+        "heading_color": "#121212",
+        "layout_bg_color": "#FFFFFF",
+        "layout_border_color": "#121212",
+        "background_color": "#FFFFFF",
+        "border_color": "#121212",
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "margin_horizontal": 0,
+        "margin_horizontal_mobile": 0,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_horizontal": 5,
+        "padding_horizontal_mobile": 0,
+        "full_width": false,
+        "content_width": 1200,
+        "border_thickness": 0,
+        "section_radius": 0,
+        "lazy": true
+      }
+    },
     "slideshow_irgQDP": {
       "type": "slideshow",
       "blocks": {
@@ -363,6 +439,7 @@
   },
   "order": [
     "slideshow",
+    "ss_scrolling_logo_cloud_5_NVpYhF",
     "slideshow_irgQDP",
     "multi_column_ARmNNd",
     "featured_product_xMTtkb",
