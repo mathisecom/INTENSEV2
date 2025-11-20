@@ -603,8 +603,8 @@
           "type": "quote",
           "settings": {
             "logo_width": 100,
-            "author": "",
-            "content": "Write some content about what they says about your store.",
+            "author": "Sophie & Daniel, 6 years together",
+            "content": "\"Comfortable from the start, everything feels natural. We’ve rediscovered our connection.\"",
             "show_rating": true,
             "rating": 4
           }
@@ -613,8 +613,8 @@
           "type": "quote",
           "settings": {
             "logo_width": 100,
-            "author": "",
-            "content": "Write some content about what they says about your store.",
+            "author": "Mia & Oliver, 2 years together",
+            "content": "\"No more pain, just enjoyment. Every moment feels closer and more exciting.\"",
             "show_rating": true,
             "rating": 4
           }
@@ -623,8 +623,8 @@
           "type": "quote",
           "settings": {
             "logo_width": 100,
-            "author": "",
-            "content": "Write some content about what they says about your store.",
+            "author": "Hannah & Lucas, married 8 years",
+            "content": "\"She’s relaxed, we’re playful, and everything flows effortlessly. Truly satisfying.\"",
             "show_rating": true,
             "rating": 4
           }
