@@ -151,6 +151,7 @@
         "item_adtXkC": {
           "type": "item",
           "settings": {
+            "image": "shopify://shop_images/Titre_60.jpg",
             "column_size": "3",
             "title": "Column title",
             "heading_tag": "h4",
@@ -163,6 +164,7 @@
         "item_JR4RgA": {
           "type": "item",
           "settings": {
+            "image": "shopify://shop_images/Titre_59.jpg",
             "column_size": "3",
             "title": "Column title",
             "heading_tag": "h4",
@@ -211,12 +213,9 @@
             "heading_tag": "h2"
           }
         },
-        "badges_AXxQcX": {
-          "type": "badges",
-          "settings": {}
-        },
         "price_8abEYn": {
           "type": "price",
+          "disabled": true,
           "settings": {
             "show_taxes_notice": false
           }
@@ -226,35 +225,6 @@
           "settings": {
             "show_empty": false
           }
-        },
-        "separator_FxbMTp": {
-          "type": "separator",
-          "disabled": true,
-          "settings": {}
-        },
-        "description_hpUaNB": {
-          "type": "description",
-          "disabled": true,
-          "settings": {
-            "icon": "none",
-            "icon_width": 20,
-            "collapse_content": false
-          }
-        },
-        "variant_picker_Mq7mjx": {
-          "type": "variant_picker",
-          "settings": {
-            "hide_sold_out_variants": false,
-            "stack_blocks": true,
-            "selector_style": "block",
-            "swatch_selector_style": "swatch",
-            "variant_image_options": "",
-            "size_chart_page": ""
-          }
-        },
-        "quantity_selector_mCYnPa": {
-          "type": "quantity_selector",
-          "settings": {}
         },
         "liquid_6KeNyi": {
           "type": "liquid",
@@ -309,13 +279,8 @@
       "block_order": [
         "liquid_GMyEh4",
         "title_wxytAV",
-        "badges_AXxQcX",
         "price_8abEYn",
         "rating_fkmE9a",
-        "separator_FxbMTp",
-        "description_hpUaNB",
-        "variant_picker_Mq7mjx",
-        "quantity_selector_mCYnPa",
         "liquid_6KeNyi",
         "buy_buttons_yEFjKM",
         "liquid_NYqBfh",
