@@ -17,7 +17,7 @@
         "message": {
           "type": "message",
           "settings": {
-            "text": "Announce something here",
+            "text": "✦ Black Friday Sale ✦",
             "url": ""
           }
         }
@@ -42,9 +42,9 @@
       "settings": {
         "enable_sticky": true,
         "hide_on_scroll": false,
-        "logo": "shopify://shop_images/Logo_11.png",
+        "logo": "shopify://shop_images/Logo_12_1.png",
         "logo_max_width": 120,
-        "logo_mobile_max_width": 90,
+        "logo_mobile_max_width": 100,
         "menu": "main-menu",
         "sidebar_menu": "",
         "secondary_menu": "",
