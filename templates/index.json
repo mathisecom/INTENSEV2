@@ -489,13 +489,13 @@
             "subheading": "",
             "title": "Heading",
             "content": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
-            "link_text": "",
+            "link_text": "SHOP NOW",
             "link_url": "",
             "background": "#ffffff",
             "background_gradient": "",
             "text_color": "#1a1a1a",
             "text_gradient": "",
-            "button_background": "",
+            "button_background": "#890d20",
             "button_text_color": ""
           }
         }
@@ -508,6 +508,22 @@
         "full_width": true,
         "alternate_media_position": false,
         "spacing": "none"
+      }
+    },
+    "scrolling_text_F8rTta": {
+      "type": "scrolling-text",
+      "name": "Scrolling text",
+      "settings": {
+        "full_width": true,
+        "text": "Promotion text",
+        "text_size": "xsmall",
+        "text_style": "fill",
+        "scrolling_mode": "auto",
+        "scrolling_speed": 10,
+        "background": "#890d20",
+        "background_gradient": "",
+        "text_color": "#ffffff",
+        "text_gradient": ""
       }
     },
     "text_with_icons_VxQ3xh": {
@@ -566,9 +582,9 @@
         "heading_tag": "h5",
         "text_alignment": "center",
         "icon_spacing": "medium",
-        "background": "",
+        "background": "#fff0f2",
         "background_gradient": "",
-        "text_color": ""
+        "text_color": "#890d20"
       }
     },
     "media_with_text_LrxMaj": {
@@ -577,6 +593,7 @@
         "image_78bcyi": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/Titre_65.jpg",
             "media_width": 50,
             "media_position": "start",
             "text_position": "place-self-center text-center",
@@ -585,14 +602,14 @@
             "subheading": "",
             "title": "Heading",
             "content": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
-            "link_text": "",
+            "link_text": "BUY NOW",
             "link_url": "",
-            "background": "#ffffff",
+            "background": "#890d20",
             "background_gradient": "",
-            "text_color": "#1a1a1a",
+            "text_color": "#ffffff",
             "text_gradient": "",
-            "button_background": "",
-            "button_text_color": ""
+            "button_background": "#ffffff",
+            "button_text_color": "#890d20"
           }
         }
       },
@@ -728,6 +745,7 @@
     "multi_column_ARmNNd",
     "featured_product_xMTtkb",
     "media_with_text_mJFh3d",
+    "scrolling_text_F8rTta",
     "text_with_icons_VxQ3xh",
     "media_with_text_LrxMaj",
     "testimonials_E8cwPi",
