@@ -91,6 +91,108 @@
         "background_gradient": "linear-gradient(60deg, rgba(60, 65, 68, 1), rgba(23, 29, 33, 1) 98%)"
       }
     },
+    "multi_column_ARmNNd": {
+      "type": "multi-column",
+      "blocks": {
+        "item_aEaCYA": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Sans_titre_800_x_800_px_29.webp",
+            "column_size": "3",
+            "title": "Column title",
+            "heading_tag": "h4",
+            "content": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link"
+          }
+        },
+        "item_wrJPB3": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Sans_titre_800_x_800_px_28.webp",
+            "column_size": "3",
+            "title": "Column title",
+            "heading_tag": "h4",
+            "content": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link"
+          }
+        },
+        "item_M8NVcx": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Sans_titre_800_x_800_px_30.webp",
+            "column_size": "3",
+            "title": "Column title",
+            "heading_tag": "h4",
+            "content": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link"
+          }
+        },
+        "item_XAH6eP": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Sans_titre_800_x_800_px_33.webp",
+            "column_size": "3",
+            "title": "Column title",
+            "heading_tag": "h4",
+            "content": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link"
+          }
+        },
+        "item_adtXkC": {
+          "type": "item",
+          "settings": {
+            "column_size": "3",
+            "title": "Column title",
+            "heading_tag": "h4",
+            "content": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link"
+          }
+        },
+        "item_JR4RgA": {
+          "type": "item",
+          "settings": {
+            "column_size": "3",
+            "title": "Column title",
+            "heading_tag": "h4",
+            "content": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link"
+          }
+        }
+      },
+      "block_order": [
+        "item_aEaCYA",
+        "item_wrJPB3",
+        "item_M8NVcx",
+        "item_XAH6eP",
+        "item_adtXkC",
+        "item_JR4RgA"
+      ],
+      "name": "Multi-column",
+      "settings": {
+        "full_width": true,
+        "stack_on_mobile": false,
+        "gap": "medium",
+        "text_alignment": "center",
+        "subheading": "",
+        "title": "Featured content",
+        "content": "",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
     "featured_product_xMTtkb": {
       "type": "featured-product",
       "blocks": {
@@ -266,6 +368,7 @@
   "order": [
     "slideshow",
     "slideshow_irgQDP",
+    "multi_column_ARmNNd",
     "featured_product_xMTtkb",
     "faq"
   ]
