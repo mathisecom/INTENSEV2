@@ -602,7 +602,8 @@
         "quote_T3UgWq": {
           "type": "quote",
           "settings": {
-            "logo_width": 100,
+            "logo": "shopify://shop_images/Titre_23.png",
+            "logo_width": 50,
             "author": "Sophie & Daniel, 6 years together",
             "content": "\"Comfortable from the start, everything feels natural. We’ve rediscovered our connection.\"",
             "show_rating": true,
@@ -612,7 +613,8 @@
         "quote_dNhQFM": {
           "type": "quote",
           "settings": {
-            "logo_width": 100,
+            "logo": "shopify://shop_images/Titre_22.png",
+            "logo_width": 50,
             "author": "Mia & Oliver, 2 years together",
             "content": "\"No more pain, just enjoyment. Every moment feels closer and more exciting.\"",
             "show_rating": true,
@@ -622,7 +624,8 @@
         "quote_e7bTA8": {
           "type": "quote",
           "settings": {
-            "logo_width": 100,
+            "logo": "shopify://shop_images/Titre_24.png",
+            "logo_width": 50,
             "author": "Hannah & Lucas, married 8 years",
             "content": "\"She’s relaxed, we’re playful, and everything flows effortlessly. Truly satisfying.\"",
             "show_rating": true,
