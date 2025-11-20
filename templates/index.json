@@ -1119,10 +1119,10 @@
           "settings": {
             "round_avatar": true,
             "show_rating": true,
-            "rating": 4,
-            "author": "John S.",
+            "rating": 5,
+            "author": "Laura & James, 5 years together",
             "title": "Testimonial 1",
-            "content": "<p>Share what your customers are saying about your products, customer service or shipping rates.</p>"
+            "content": "<p>Pain used to stop us in the middle, and it was frustrating for both of us. Since we started using it, everything feels natural. She’s more relaxed, I’m more confident, and we actually enjoy every moment together. It’s completely transformed our intimacy.</p>"
           }
         },
         "testimonial_CAjdNH": {
@@ -1131,9 +1131,9 @@
             "round_avatar": true,
             "show_rating": true,
             "rating": 5,
-            "author": "Mary U.",
+            "author": "Jessica & Mark, married 14 years",
             "title": "Testimonial 2",
-            "content": "<p>Share what your customers are saying about your products, customer service or shipping rates.</p>"
+            "content": "<p>After all these years, we thought we’d tried everything. But this changed everything. No more pain, no more awkward moments, just connection and pleasure. We feel like we’re falling in love all over again, and it’s incredible.</p>"
           }
         },
         "testimonial_fEGRVm": {
@@ -1141,17 +1141,41 @@
           "settings": {
             "round_avatar": true,
             "show_rating": true,
-            "rating": 4,
-            "author": "Joshua A.",
+            "rating": 5,
+            "author": "Emily & Ryan, 3 years together",
             "title": "Testimonial 3",
-            "content": "<p>Share what your customers are saying about your products, customer service or shipping rates.</p>"
+            "content": "<p>She used to tense up because of discomfort, which made things stressful. Now, she’s completely relaxed from the start. We can explore new things, laugh more, and truly enjoy each other without hesitation. It’s brought excitement back to our relationship.</p>"
+          }
+        },
+        "testimonial_c6xQaC": {
+          "type": "testimonial",
+          "settings": {
+            "round_avatar": true,
+            "show_rating": true,
+            "rating": 4,
+            "author": "Natalie & Adam, married 7 years",
+            "title": "Testimonial 3",
+            "content": "<p>We never expected such a simple change to make such a big difference. She’s comfortable from the very beginning, which allows us to focus on connection instead of worrying about pain. We’ve become more adventurous, more affectionate… it feels like we’ve rediscovered each other.</p>"
+          }
+        },
+        "testimonial_iX3JTy": {
+          "type": "testimonial",
+          "settings": {
+            "round_avatar": true,
+            "show_rating": true,
+            "rating": 5,
+            "author": "Chloe & Nathan, 10 years together",
+            "title": "Testimonial 3",
+            "content": "<p>For years, small discomforts added up and took the fun out of our intimate moments. Since using this, she’s more confident, I’m more attentive, and every moment feels effortless. We laugh, we explore, and we truly enjoy being together again.</p>"
           }
         }
       },
       "block_order": [
         "testimonial_a8Rkfi",
         "testimonial_CAjdNH",
-        "testimonial_fEGRVm"
+        "testimonial_fEGRVm",
+        "testimonial_c6xQaC",
+        "testimonial_iX3JTy"
       ],
       "name": "Testimonials",
       "settings": {
