@@ -266,6 +266,19 @@
             "link_style": "link"
           }
         },
+        "item_adtXkC": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Titre_60.jpg",
+            "column_size": "3",
+            "title": "Ava & Mark",
+            "heading_tag": "h4",
+            "content": "<p><em>\"Pain used to stop us halfway, and it created distance. But with Intense, she relaxes into every moment. We explore, we laugh, and we feel like partners again, not just trying to ‘make things work.’ It brought back a spark we didn’t know we’d lost.\"</em></p>",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link"
+          }
+        },
         "item_M8NVcx": {
           "type": "item",
           "settings": {
@@ -292,19 +305,6 @@
             "link_style": "link"
           }
         },
-        "item_adtXkC": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/Titre_60.jpg",
-            "column_size": "3",
-            "title": "Ava & Mark",
-            "heading_tag": "h4",
-            "content": "<p><em>\"Pain used to stop us halfway, and it created distance. But with Intense, she relaxes into every moment. We explore, we laugh, and we feel like partners again, not just trying to ‘make things work.’ It brought back a spark we didn’t know we’d lost.\"</em></p>",
-            "link_url": "",
-            "link_text": "",
-            "link_style": "link"
-          }
-        },
         "item_JR4RgA": {
           "type": "item",
           "settings": {
@@ -322,9 +322,9 @@
       "block_order": [
         "item_aEaCYA",
         "item_wrJPB3",
+        "item_adtXkC",
         "item_M8NVcx",
         "item_XAH6eP",
-        "item_adtXkC",
         "item_JR4RgA"
       ],
       "name": "Multi-column",
