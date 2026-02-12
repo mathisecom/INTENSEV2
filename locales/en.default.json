@@ -444,6 +444,11 @@
   "shopify": {
     "links": {
       "powered_by_shopify": " "
+    },
+    "checkout": {
+      "contact": {
+        "optional_phone_label": "Phone (Recommended for delivery)"
+      }
     }
   }
 }
