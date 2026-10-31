@@ -1,0 +1,457 @@
+{% comment %}
+  ORSELYNO — Section éditoriale image + texte
+  À placer dans sections/editorial-orselyno.liquid
+  Réglages accessibles depuis l'éditeur visuel Shopify.
+{% endcomment %}
+
+{%- liquid
+  assign image_ratio = 100 | minus: section.settings.text_column_percent
+  assign section_hero_id = 'ors-editorial-' | append: section.id
+  assign cta_destination = section.settings.button_link | default: routes.collections_url
+  assign content_justification = 'center'
+  case section.settings.vertical_align
+    when 'top'
+      assign content_justification = 'flex-start'
+    when 'bottom'
+      assign content_justification = 'flex-end'
+  endcase
+  assign button_alignment = 'flex-start'
+  case section.settings.text_align
+    when 'center'
+      assign button_alignment = 'center'
+    when 'right'
+      assign button_alignment = 'flex-end'
+  endcase
+-%}
+
+<style>
+  #{{ section_hero_id }} {
+    --ors-outer-background: {{ section.settings.section_background }};
+    --ors-content-background: {{ section.settings.text_background }};
+    --ors-image-background: {{ section.settings.image_background }};
+    --ors-headline-color: {{ section.settings.heading_color }};
+    --ors-text-color: {{ section.settings.body_color }};
+    --ors-eyebrow-color: {{ section.settings.eyebrow_color }};
+    --ors-button-color: {{ section.settings.button_background }};
+    --ors-button-hover: {{ section.settings.button_hover_background }};
+    --ors-button-text: {{ section.settings.button_text_color }};
+    --ors-caption-color: {{ section.settings.caption_color }};
+    --ors-border-color: {{ section.settings.border_color }};
+    --ors-panel-height: {{ section.settings.desktop_height }}px;
+    --ors-desktop-heading: {{ section.settings.heading_size_desktop }}px;
+    --ors-mobile-heading: {{ section.settings.heading_size_mobile }}px;
+    --ors-text-width: {{ section.settings.text_max_width }}px;
+    --ors-image-x: {{ section.settings.image_horizontal }}%;
+    --ors-image-y: {{ section.settings.image_vertical }}%;
+    --ors-desktop-text-padding: {{ section.settings.text_padding_desktop }}px;
+    --ors-mobile-text-padding: {{ section.settings.text_padding_mobile }}px;
+    --ors-button-align: {{ button_alignment }};
+    --ors-content-justify: {{ content_justification }};
+    --ors-mobile-media-height: {{ section.settings.mobile_image_height }}px;
+    background: var(--ors-outer-background);
+    padding: {{ section.settings.padding_top }}px {{ section.settings.side_padding }}px {{ section.settings.padding_bottom }}px;
+  }
+
+  #{{ section_hero_id }} *,
+  #{{ section_hero_id }} *::before,
+  #{{ section_hero_id }} *::after { box-sizing: border-box; }
+
+  #{{ section_hero_id }} .ors-editorial__frame {
+    display: grid;
+    {% if section.settings.desktop_image_side == 'left' %}
+      grid-template-columns: minmax(0, {{ image_ratio }}fr) minmax(0, {{ section.settings.text_column_percent }}fr);
+    {% else %}
+      grid-template-columns: minmax(0, {{ section.settings.text_column_percent }}fr) minmax(0, {{ image_ratio }}fr);
+    {% endif %}
+    width: 100%;
+    max-width: {{ section.settings.max_width }}px;
+    min-height: var(--ors-panel-height);
+    margin: 0 auto;
+    border-radius: {{ section.settings.corner_radius }}px;
+    border: {{ section.settings.border_width }}px solid var(--ors-border-color);
+    overflow: hidden;
+  }
+
+  #{{ section_hero_id }} .ors-editorial__content {
+    background: var(--ors-content-background);
+    {% if section.settings.desktop_image_side == 'left' %}order: 2;{% else %}order: 1;{% endif %}
+    display: flex;
+    flex-direction: column;
+    align-items: {% if section.settings.text_align == 'center' %}center{% elsif section.settings.text_align == 'right' %}flex-end{% else %}flex-start{% endif %};
+    justify-content: var(--ors-content-justify);
+    min-width: 0;
+    padding: var(--ors-desktop-text-padding);
+    text-align: {{ section.settings.text_align }};
+  }
+
+  #{{ section_hero_id }} .ors-editorial__inner {
+    width: 100%;
+    max-width: var(--ors-text-width);
+  }
+
+  #{{ section_hero_id }} .ors-editorial__eyebrow {
+    margin: 0 0 {{ section.settings.eyebrow_spacing }}px;
+    color: var(--ors-eyebrow-color);
+    font-family: var(--font-body-family, inherit);
+    font-size: {{ section.settings.eyebrow_size }}px;
+    font-weight: 700;
+    line-height: 1.5;
+    letter-spacing: {{ section.settings.eyebrow_letter_spacing }}px;
+    text-transform: {% if section.settings.uppercase_eyebrow %}uppercase{% else %}none{% endif %};
+  }
+
+  #{{ section_hero_id }} .ors-editorial__heading {
+    margin: 0;
+    color: var(--ors-headline-color);
+    font-family: var(--font-heading-family, Georgia, serif);
+    font-style: var(--font-heading-style, normal);
+    font-weight: var(--font-heading-weight, 400);
+    font-size: var(--ors-desktop-heading);
+    line-height: {{ section.settings.heading_line_height | divided_by: 100.0 }};
+    letter-spacing: -0.035em;
+    overflow-wrap: anywhere;
+  }
+
+  #{{ section_hero_id }} .ors-editorial__description {
+    margin-top: {{ section.settings.description_spacing }}px;
+    color: var(--ors-text-color);
+    font-family: var(--font-body-family, inherit);
+    font-size: {{ section.settings.body_size }}px;
+    line-height: {{ section.settings.body_line_height | divided_by: 100.0 }};
+  }
+
+  #{{ section_hero_id }} .ors-editorial__description p { margin: 0 0 0.85em; }
+  #{{ section_hero_id }} .ors-editorial__description p:last-child { margin-bottom: 0; }
+  #{{ section_hero_id }} .ors-editorial__description a { color: inherit; text-underline-offset: 3px; }
+
+  #{{ section_hero_id }} .ors-editorial__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    align-self: var(--ors-button-align);
+    gap: {{ section.settings.button_icon_gap }}px;
+    min-height: {{ section.settings.button_height }}px;
+    margin-top: {{ section.settings.button_spacing }}px;
+    padding: 12px {{ section.settings.button_padding }}px;
+    background: var(--ors-button-color);
+    color: var(--ors-button-text);
+    border: 1px solid var(--ors-button-color);
+    border-radius: {{ section.settings.button_corner_radius }}px;
+    font-family: var(--font-body-family, inherit);
+    font-size: {{ section.settings.button_font_size }}px;
+    font-weight: 700;
+    line-height: 1.25;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 180ms ease, border-color 180ms ease, transform 180ms ease;
+  }
+  #{{ section_hero_id }} .ors-editorial__button:hover,
+  #{{ section_hero_id }} .ors-editorial__button:focus-visible {
+    background: var(--ors-button-hover);
+    border-color: var(--ors-button-hover);
+  }
+  #{{ section_hero_id }} .ors-editorial__button:focus-visible,
+  #{{ section_hero_id }} .ors-editorial__media-link:focus-visible {
+    outline: 3px solid var(--ors-button-hover);
+    outline-offset: 3px;
+  }
+  #{{ section_hero_id }} .ors-editorial__button svg {
+    flex: 0 0 auto;
+    width: {{ section.settings.button_icon_size }}px;
+    height: {{ section.settings.button_icon_size }}px;
+  }
+
+  #{{ section_hero_id }} .ors-editorial__media,
+  #{{ section_hero_id }} .ors-editorial__media-link {
+    {% if section.settings.desktop_image_side == 'left' %}order: 1;{% else %}order: 2;{% endif %}
+    position: relative;
+    display: block;
+    isolation: isolate;
+    min-width: 0;
+    min-height: var(--ors-panel-height);
+    overflow: hidden;
+    background: var(--ors-image-background);
+    text-decoration: none;
+  }
+
+  #{{ section_hero_id }} .ors-editorial__image,
+  #{{ section_hero_id }} .ors-editorial__illustration,
+  #{{ section_hero_id }} .ors-editorial__illustration svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+  #{{ section_hero_id }} .ors-editorial__image {
+    display: block;
+    object-fit: {{ section.settings.image_fit }};
+    object-position: var(--ors-image-x) var(--ors-image-y);
+  }
+  #{{ section_hero_id }} .ors-editorial__image--mobile { display: none; }
+  #{{ section_hero_id }} .ors-editorial__illustration svg { display: block; }
+
+  #{{ section_hero_id }} .ors-editorial__overlay {
+    position: absolute;
+    z-index: 1;
+    inset: 0;
+    background: {{ section.settings.overlay_color }};
+    opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
+    pointer-events: none;
+  }
+
+  #{{ section_hero_id }} .ors-editorial__caption {
+    position: absolute;
+    z-index: 2;
+    right: {{ section.settings.caption_inset }}px;
+    bottom: {{ section.settings.caption_inset }}px;
+    left: {{ section.settings.caption_inset }}px;
+    margin: 0;
+    color: var(--ors-caption-color);
+    font-family: var(--font-body-family, inherit);
+    font-size: {{ section.settings.caption_size }}px;
+    font-weight: 700;
+    letter-spacing: {{ section.settings.caption_letter_spacing }}px;
+    line-height: 1.4;
+    text-align: {{ section.settings.caption_align }};
+    text-transform: {% if section.settings.uppercase_caption %}uppercase{% else %}none{% endif %};
+  }
+
+  @media (max-width: 989px) and (min-width: 750px) {
+    #{{ section_hero_id }} .ors-editorial__content {
+      padding: {{ section.settings.text_padding_desktop | times: 0.65 | round }}px;
+    }
+    #{{ section_hero_id }} .ors-editorial__heading {
+      font-size: min(var(--ors-desktop-heading), 4.4vw);
+    }
+  }
+
+  @media (max-width: 749px) {
+    #{{ section_hero_id }} {
+      padding: {{ section.settings.mobile_padding_top }}px {{ section.settings.mobile_side_padding }}px {{ section.settings.mobile_padding_bottom }}px;
+    }
+    #{{ section_hero_id }} .ors-editorial__frame {
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+    }
+    #{{ section_hero_id }} .ors-editorial__content {
+      order: {% if section.settings.mobile_image_first %}2{% else %}1{% endif %};
+      min-height: {{ section.settings.mobile_text_min_height }}px;
+      padding: var(--ors-mobile-text-padding);
+      text-align: {{ section.settings.mobile_text_align }};
+      align-items: {% if section.settings.mobile_text_align == 'center' %}center{% elsif section.settings.mobile_text_align == 'right' %}flex-end{% else %}flex-start{% endif %};
+    }
+    #{{ section_hero_id }} .ors-editorial__eyebrow { font-size: {{ section.settings.eyebrow_size_mobile }}px; }
+    #{{ section_hero_id }} .ors-editorial__heading { font-size: var(--ors-mobile-heading); }
+    #{{ section_hero_id }} .ors-editorial__description { font-size: {{ section.settings.body_size_mobile }}px; }
+    #{{ section_hero_id }} .ors-editorial__button {
+      align-self: {% if section.settings.mobile_text_align == 'center' %}center{% elsif section.settings.mobile_text_align == 'right' %}flex-end{% else %}flex-start{% endif %};
+      {% if section.settings.mobile_button_full_width %}width: 100%;{% endif %}
+    }
+    #{{ section_hero_id }} .ors-editorial__media,
+    #{{ section_hero_id }} .ors-editorial__media-link {
+      order: {% if section.settings.mobile_image_first %}1{% else %}2{% endif %};
+      flex: 0 0 auto;
+      min-height: 0;
+      height: var(--ors-mobile-media-height);
+    }
+    {% if section.settings.mobile_image != blank %}
+      #{{ section_hero_id }} .ors-editorial__image--desktop,
+      #{{ section_hero_id }} .ors-editorial__illustration { display: none; }
+      #{{ section_hero_id }} .ors-editorial__image--mobile { display: block; }
+    {% endif %}
+    #{{ section_hero_id }} .ors-editorial__caption {
+      right: {{ section.settings.caption_inset_mobile }}px;
+      bottom: {{ section.settings.caption_inset_mobile }}px;
+      left: {{ section.settings.caption_inset_mobile }}px;
+      font-size: {{ section.settings.caption_size_mobile }}px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #{{ section_hero_id }} .ors-editorial__button { transition: none; }
+  }
+</style>
+
+<section id="{{ section_hero_id }}" class="ors-editorial-section" aria-label="{{ section.settings.section_aria_label | escape }}">
+  <div class="ors-editorial__frame">
+    <div class="ors-editorial__content">
+      <div class="ors-editorial__inner">
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="ors-editorial__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+        {%- endif -%}
+        {%- if section.settings.heading != blank -%}
+          <h2 class="ors-editorial__heading">{{ section.settings.heading | escape | newline_to_br }}</h2>
+        {%- endif -%}
+        {%- if section.settings.description != blank -%}
+          <div class="ors-editorial__description rte">{{ section.settings.description }}</div>
+        {%- endif -%}
+        {%- if section.settings.show_button and section.settings.button_text != blank -%}
+          <a class="ors-editorial__button" href="{{ cta_destination }}" {% if section.settings.button_new_tab %}target="_blank" rel="noopener noreferrer"{% endif %}>
+            <span>{{ section.settings.button_text | escape }}</span>
+            {%- if section.settings.button_icon != 'none' -%}
+              {% if section.settings.button_icon == 'arrow_up_right' %}
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 19 19 5M9 5h10v10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              {% else %}
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              {% endif %}
+            {%- endif -%}
+          </a>
+        {%- endif -%}
+      </div>
+    </div>
+
+    {% if section.settings.image_link != blank %}
+      <a class="ors-editorial__media-link" href="{{ section.settings.image_link }}" aria-label="{{ section.settings.image_link_label | default: section.settings.caption | default: section.settings.heading | escape }}">
+    {% else %}
+      <div class="ors-editorial__media">
+    {% endif %}
+      {%- if section.settings.main_image != blank -%}
+        {{ section.settings.main_image | image_url: width: 2200 | image_tag: class: 'ors-editorial__image ors-editorial__image--desktop', loading: 'lazy', sizes: '(max-width: 749px) 100vw, 60vw', alt: section.settings.image_alt }}
+      {%- else -%}
+        <div class="ors-editorial__illustration" role="img" aria-label="Illustration d'une table à manger et d'une plante dans une pièce claire">
+          <svg viewBox="0 0 760 620" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect width="760" height="620" fill="{{ section.settings.image_background }}"/>
+            <circle cx="710" cy="72" r="255" fill="#DEE0D4" opacity=".42"/>
+            <path d="M0 432h760" stroke="#A8AC9F" stroke-width="3" opacity=".65"/>
+            <path d="M90 0v620M570 0v620" stroke="#ACB0A4" stroke-width="1.7" opacity=".18"/>
+            <rect x="69" y="82" width="135" height="239" rx="4" fill="#DADCCD" opacity=".9"/>
+            <path d="M136 82v239M69 203h135" stroke="#AFB4A6" stroke-width="5" opacity=".75"/>
+            <path d="M611 452h103" stroke="#A9AD9F" stroke-width="1.7" opacity=".45"/>
+            <path d="M663 422v-92" stroke="#74866F" stroke-width="6" opacity=".95"/>
+            <path d="M663 344c-21-20-39-45-34-70 24-4 36 34 39 49 14-27 37-33 58-15 3 22-26 45-58 55" fill="#879985" opacity=".88"/>
+            <path d="m646 404 34 0 18 49h-71z" fill="#B4AB98"/>
+            <ellipse cx="404" cy="467" rx="263" ry="30" fill="#969388" opacity=".17"/>
+            <path d="m194 360 8 124q2 19 16 12l31-108z" fill="#77513C"/>
+            <path d="m319 385-7 90q-2 20 13 12l27-105z" fill="#69432F"/>
+            <path d="m516 358 29 131q5 18 18 8l-11-155z" fill="#73503A"/>
+            <path d="m608 342 31 135q4 15 17 9l-9-152z" fill="#6A4533"/>
+            <path d="M139 315q2-13 23-17l386-35q15-2 31 6l75 43q15 10 1 21-4 4-19 8l-388 60q-11 2-22-4l-80-57q-12-8-7-25z" fill="#B58B67"/>
+            <path d="M148 313q6-9 22-11l370-34q20-2 36 7l71 41q13 7 0 16l-396 61q-10 2-20-5l-79-53q-11-8-4-22z" fill="#714D38"/>
+            <path d="M159 311 543 275q17-1 31 7l65 35-396 66z" fill="#79543E"/>
+            <path d="m300 345 41-6m29-4 101-12" stroke="#A27A58" stroke-width="3" opacity=".65" stroke-linecap="round"/>
+            <path d="m399 292 46-1 10 46h-60z" fill="#BCB5A4"/>
+            <path d="M423 291q-14-20-12-47 4-13-4-28" fill="none" stroke="#597359" stroke-width="5" stroke-linecap="round"/>
+            <path d="M412 242q-15 1-20-9 10-12 22-6M412 218q13-5 11-16" fill="none" stroke="#607D5F" stroke-width="5" stroke-linecap="round"/>
+          </svg>
+        </div>
+      {%- endif -%}
+      {%- if section.settings.mobile_image != blank -%}
+        {{ section.settings.mobile_image | image_url: width: 1200 | image_tag: class: 'ors-editorial__image ors-editorial__image--mobile', loading: 'lazy', sizes: '100vw', alt: section.settings.image_alt }}
+      {%- endif -%}
+      <div class="ors-editorial__overlay" aria-hidden="true"></div>
+      {%- if section.settings.show_caption and section.settings.caption != blank -%}
+        <p class="ors-editorial__caption">{{ section.settings.caption | escape }}</p>
+      {%- endif -%}
+    {% if section.settings.image_link != blank %}
+      </a>
+    {% else %}
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "ORSELYNO • Texte & image",
+  "tag": "section",
+  "class": "orselyno-editorial-wrapper",
+  "settings": [
+    { "type": "header", "content": "Contenus" },
+    { "type": "text", "id": "section_aria_label", "label": "Nom de la section (accessibilité)", "default": "Découvrez nos tables à manger" },
+    { "type": "text", "id": "eyebrow", "label": "Petit titre", "default": "L'ESPRIT ORSELYNO" },
+    { "type": "textarea", "id": "heading", "label": "Grand titre", "default": "Une table pour les jours ordinaires. Et les grandes occasions." },
+    { "type": "richtext", "id": "description", "label": "Description", "default": "<p>Du dîner à deux aux longues tablées, retrouvez des modèles extensibles pour adapter votre espace à vos envies.</p>" },
+    { "type": "checkbox", "id": "show_button", "label": "Afficher le bouton", "default": true },
+    { "type": "text", "id": "button_text", "label": "Texte du bouton", "default": "Découvrir les tables" },
+    { "type": "url", "id": "button_link", "label": "Lien du bouton" },
+    { "type": "checkbox", "id": "button_new_tab", "label": "Ouvrir le lien dans un nouvel onglet", "default": false },
+    { "type": "select", "id": "button_icon", "label": "Icône du bouton", "default": "arrow_up_right", "options": [ { "value": "arrow_up_right", "label": "Flèche diagonale" }, { "value": "arrow_right", "label": "Flèche horizontale" }, { "value": "none", "label": "Aucune" } ] },
+
+    { "type": "header", "content": "Visuel" },
+    { "type": "image_picker", "id": "main_image", "label": "Image principale (ordinateur)" },
+    { "type": "image_picker", "id": "mobile_image", "label": "Image mobile (facultatif)" },
+    { "type": "text", "id": "image_alt", "label": "Description de l'image", "default": "Table à manger dans un intérieur lumineux" },
+    { "type": "url", "id": "image_link", "label": "Lien de l'image (facultatif)" },
+    { "type": "text", "id": "image_link_label", "label": "Description du lien de l'image", "default": "Découvrir notre sélection de tables" },
+    { "type": "select", "id": "image_fit", "label": "Ajustement du visuel", "default": "cover", "options": [ { "value": "cover", "label": "Remplir (recadrer)" }, { "value": "contain", "label": "Voir toute l'image" } ] },
+    { "type": "range", "id": "image_horizontal", "label": "Position horizontale image (%)", "min": 0, "max": 100, "step": 5, "default": 50 },
+    { "type": "range", "id": "image_vertical", "label": "Position verticale image (%)", "min": 0, "max": 100, "step": 5, "default": 50 },
+    { "type": "checkbox", "id": "show_caption", "label": "Afficher la légende en bas de l'image", "default": true },
+    { "type": "text", "id": "caption", "label": "Légende", "default": "DES MOMENTS À PARTAGER" },
+    { "type": "checkbox", "id": "uppercase_caption", "label": "Légende en majuscules", "default": true },
+    { "type": "select", "id": "caption_align", "label": "Alignement de la légende", "default": "right", "options": [ { "value": "left", "label": "Gauche" }, { "value": "center", "label": "Centre" }, { "value": "right", "label": "Droite" } ] },
+
+    { "type": "header", "content": "Disposition sur ordinateur" },
+    { "type": "select", "id": "desktop_image_side", "label": "Image placée", "default": "right", "options": [ { "value": "right", "label": "À droite" }, { "value": "left", "label": "À gauche" } ] },
+    { "type": "range", "id": "text_column_percent", "label": "Largeur du panneau texte (%)", "min": 30, "max": 70, "step": 5, "default": 45 },
+    { "type": "range", "id": "desktop_height", "label": "Hauteur minimale de la section (px)", "min": 400, "max": 800, "step": 20, "default": 600 },
+    { "type": "range", "id": "max_width", "label": "Largeur maximale (px)", "min": 900, "max": 1600, "step": 20, "default": 1380 },
+    { "type": "range", "id": "text_padding_desktop", "label": "Marge intérieure du texte (px)", "min": 20, "max": 140, "step": 4, "default": 76 },
+    { "type": "range", "id": "text_max_width", "label": "Largeur maximale du texte (px)", "min": 300, "max": 700, "step": 20, "default": 420 },
+    { "type": "select", "id": "vertical_align", "label": "Position verticale du texte", "default": "center", "options": [ { "value": "top", "label": "Haut" }, { "value": "center", "label": "Centre" }, { "value": "bottom", "label": "Bas" } ] },
+    { "type": "select", "id": "text_align", "label": "Alignement du texte", "default": "left", "options": [ { "value": "left", "label": "Gauche" }, { "value": "center", "label": "Centre" }, { "value": "right", "label": "Droite" } ] },
+    { "type": "range", "id": "padding_top", "label": "Marge extérieure haute (px)", "min": 0, "max": 120, "step": 4, "default": 24 },
+    { "type": "range", "id": "padding_bottom", "label": "Marge extérieure basse (px)", "min": 0, "max": 120, "step": 4, "default": 24 },
+    { "type": "range", "id": "side_padding", "label": "Marges extérieures latérales (px)", "min": 0, "max": 100, "step": 4, "default": 32 },
+    { "type": "range", "id": "corner_radius", "label": "Arrondi des coins (px)", "min": 0, "max": 40, "step": 2, "default": 0 },
+    { "type": "range", "id": "border_width", "label": "Épaisseur bordure (px)", "min": 0, "max": 4, "step": 1, "default": 0 },
+
+    { "type": "header", "content": "Typographie" },
+    { "type": "paragraph", "content": "Les polices du titre et du texte suivent automatiquement les polices de votre thème Shopify." },
+    { "type": "range", "id": "heading_size_desktop", "label": "Taille du titre PC (px)", "min": 28, "max": 80, "step": 2, "default": 56 },
+    { "type": "range", "id": "heading_size_mobile", "label": "Taille du titre mobile (px)", "min": 24, "max": 60, "step": 2, "default": 38 },
+    { "type": "range", "id": "heading_line_height", "label": "Interligne du grand titre (%)", "min": 90, "max": 150, "step": 5, "default": 110 },
+    { "type": "range", "id": "body_size", "label": "Taille description PC (px)", "min": 12, "max": 22, "step": 1, "default": 15 },
+    { "type": "range", "id": "body_size_mobile", "label": "Taille description mobile (px)", "min": 12, "max": 22, "step": 1, "default": 14 },
+    { "type": "range", "id": "body_line_height", "label": "Interligne description (%)", "min": 120, "max": 200, "step": 5, "default": 170 },
+    { "type": "range", "id": "eyebrow_size", "label": "Taille du petit titre PC (px)", "min": 9, "max": 18, "step": 1, "default": 11 },
+    { "type": "range", "id": "eyebrow_size_mobile", "label": "Taille du petit titre mobile (px)", "min": 9, "max": 18, "step": 1, "default": 10 },
+    { "type": "checkbox", "id": "uppercase_eyebrow", "label": "Petit titre en majuscules", "default": true },
+    { "type": "range", "id": "eyebrow_letter_spacing", "label": "Espacement lettres du petit titre (px)", "min": 0, "max": 5, "step": 0.5, "default": 1.5 },
+    { "type": "range", "id": "eyebrow_spacing", "label": "Espace sous le petit titre (px)", "min": 0, "max": 60, "step": 2, "default": 20 },
+    { "type": "range", "id": "description_spacing", "label": "Espace avant la description (px)", "min": 0, "max": 80, "step": 2, "default": 28 },
+    { "type": "range", "id": "caption_size", "label": "Taille de la légende PC (px)", "min": 9, "max": 20, "step": 1, "default": 11 },
+    { "type": "range", "id": "caption_size_mobile", "label": "Taille de la légende mobile (px)", "min": 9, "max": 20, "step": 1, "default": 10 },
+    { "type": "range", "id": "caption_letter_spacing", "label": "Espacement lettres légende (px)", "min": 0, "max": 5, "step": 0.5, "default": 1.5 },
+    { "type": "range", "id": "caption_inset", "label": "Marge de la légende PC (px)", "min": 10, "max": 80, "step": 2, "default": 30 },
+    { "type": "range", "id": "caption_inset_mobile", "label": "Marge de la légende mobile (px)", "min": 10, "max": 60, "step": 2, "default": 20 },
+
+    { "type": "header", "content": "Bouton" },
+    { "type": "range", "id": "button_spacing", "label": "Espace avant le bouton (px)", "min": 0, "max": 80, "step": 2, "default": 30 },
+    { "type": "range", "id": "button_height", "label": "Hauteur minimale bouton (px)", "min": 36, "max": 80, "step": 2, "default": 56 },
+    { "type": "range", "id": "button_padding", "label": "Marge horizontale bouton (px)", "min": 10, "max": 60, "step": 2, "default": 24 },
+    { "type": "range", "id": "button_font_size", "label": "Taille du texte bouton (px)", "min": 10, "max": 22, "step": 1, "default": 13 },
+    { "type": "range", "id": "button_corner_radius", "label": "Arrondi du bouton (px)", "min": 0, "max": 40, "step": 2, "default": 0 },
+    { "type": "range", "id": "button_icon_gap", "label": "Espace icône / texte (px)", "min": 4, "max": 32, "step": 2, "default": 20 },
+    { "type": "range", "id": "button_icon_size", "label": "Taille de l'icône (px)", "min": 12, "max": 28, "step": 2, "default": 18 },
+
+    { "type": "header", "content": "Couleurs" },
+    { "type": "color", "id": "section_background", "label": "Fond extérieur", "default": "#FBFAF8" },
+    { "type": "color", "id": "text_background", "label": "Fond du texte", "default": "#E8EBE5" },
+    { "type": "color", "id": "image_background", "label": "Fond du visuel", "default": "#C7C7BA" },
+    { "type": "color", "id": "heading_color", "label": "Grand titre", "default": "#1E2C26" },
+    { "type": "color", "id": "body_color", "label": "Description", "default": "#737E74" },
+    { "type": "color", "id": "eyebrow_color", "label": "Petit titre", "default": "#8D988E" },
+    { "type": "color", "id": "button_background", "label": "Fond du bouton", "default": "#254538" },
+    { "type": "color", "id": "button_hover_background", "label": "Fond du bouton au survol", "default": "#18372A" },
+    { "type": "color", "id": "button_text_color", "label": "Texte du bouton", "default": "#FFFFFF" },
+    { "type": "color", "id": "caption_color", "label": "Légende sur l'image", "default": "#577261" },
+    { "type": "color", "id": "border_color", "label": "Bordure", "default": "#D3D6CB" },
+    { "type": "color", "id": "overlay_color", "label": "Couleur voile sur l'image", "default": "#000000" },
+    { "type": "range", "id": "overlay_opacity", "label": "Opacité voile image (%)", "min": 0, "max": 80, "step": 5, "default": 0 },
+
+    { "type": "header", "content": "Affichage mobile" },
+    { "type": "checkbox", "id": "mobile_image_first", "label": "Placer l'image au-dessus du texte", "default": false },
+    { "type": "select", "id": "mobile_text_align", "label": "Alignement du texte mobile", "default": "left", "options": [ { "value": "left", "label": "Gauche" }, { "value": "center", "label": "Centre" }, { "value": "right", "label": "Droite" } ] },
+    { "type": "checkbox", "id": "mobile_button_full_width", "label": "Bouton pleine largeur sur mobile", "default": false },
+    { "type": "range", "id": "mobile_image_height", "label": "Hauteur image mobile (px)", "min": 200, "max": 600, "step": 20, "default": 340 },
+    { "type": "range", "id": "mobile_text_min_height", "label": "Hauteur minimale texte mobile (px)", "min": 0, "max": 500, "step": 20, "default": 0 },
+    { "type": "range", "id": "text_padding_mobile", "label": "Marge intérieure du texte mobile (px)", "min": 12, "max": 64, "step": 2, "default": 28 },
+    { "type": "range", "id": "mobile_padding_top", "label": "Marge extérieure haute mobile (px)", "min": 0, "max": 80, "step": 4, "default": 16 },
+    { "type": "range", "id": "mobile_padding_bottom", "label": "Marge extérieure basse mobile (px)", "min": 0, "max": 80, "step": 4, "default": 16 },
+    { "type": "range", "id": "mobile_side_padding", "label": "Marges latérales mobile (px)", "min": 0, "max": 40, "step": 2, "default": 12 }
+  ],
+  "presets": [ { "name": "ORSELYNO • Texte & image" } ]
+}
+{% endschema %}
