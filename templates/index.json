@@ -15,45 +15,21 @@
         "message_y9FETG": {
           "type": "message",
           "settings": {
-            "text": "DURABLE",
+            "text": "pensée pour la maison",
             "link": ""
           }
         },
         "message_8UX3VF": {
           "type": "message",
           "settings": {
-            "text": "SANS PFAS*",
-            "link": ""
-          }
-        },
-        "message_647hfY": {
-          "type": "message",
-          "settings": {
-            "text": "TOUS FEUX",
-            "link": ""
-          }
-        },
-        "message_87a4FL": {
-          "type": "message",
-          "settings": {
-            "text": "ULTRA LÉGER",
-            "link": ""
-          }
-        },
-        "message_hxFNrm": {
-          "type": "message",
-          "settings": {
-            "text": "ANTIADHÉRENT",
+            "text": "livraison offerte en france",
             "link": ""
           }
         }
       },
       "block_order": [
         "message_y9FETG",
-        "message_8UX3VF",
-        "message_647hfY",
-        "message_87a4FL",
-        "message_hxFNrm"
+        "message_8UX3VF"
       ],
       "name": "Bandeau défilant infini",
       "settings": {

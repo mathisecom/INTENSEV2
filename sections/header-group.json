@@ -34,6 +34,7 @@
         "message",
         "message_zkAeNP"
       ],
+      "disabled": true,
       "settings": {
         "enable_sticky": false,
         "autoplay": false,
@@ -41,7 +42,7 @@
         "text_size": "text-xs",
         "navigation_mode": "scrolling",
         "scrolling_speed": 10,
-        "background": "#33302E",
+        "background": "#33302e",
         "background_gradient": "",
         "text_color": "#ffffff"
       }
