@@ -16,9 +16,8 @@
       "blocks": {
         "message": {
           "type": "message",
-          "disabled": true,
           "settings": {
-            "text": "✦ Valentine’s Day Offer – 70% Off! ✦",
+            "text": "✦ Offre D'Automne – 30 % de réduction ! ✦",
             "url": ""
           }
         },
