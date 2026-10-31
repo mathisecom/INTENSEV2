@@ -74,7 +74,7 @@
         "font_weight": "700",
         "uppercase": true,
         "letter_spacing": 1,
-        "padding_desktop": 9,
+        "padding_desktop": 10,
         "padding_mobile": 10,
         "item_gap_desktop": 20,
         "item_gap_mobile": 14,
