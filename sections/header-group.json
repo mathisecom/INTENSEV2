@@ -24,9 +24,8 @@
         },
         "message_zkAeNP": {
           "type": "message",
-          "disabled": true,
           "settings": {
-            "text": "Livraison",
+            "text": "Livraison Offerte en France",
             "url": ""
           }
         }
@@ -42,7 +41,7 @@
         "text_size": "text-xs",
         "navigation_mode": "scrolling",
         "scrolling_speed": 10,
-        "background": "#1E1E1E",
+        "background": "#33302E",
         "background_gradient": "",
         "text_color": "#ffffff"
       }
