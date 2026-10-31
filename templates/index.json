@@ -165,6 +165,7 @@
     },
     "edito_Ei9kFU": {
       "type": "edito",
+      "disabled": true,
       "name": "ORSELYNO • Texte & image",
       "settings": {
         "section_aria_label": "Découvrez nos tables à manger",
@@ -204,7 +205,7 @@
         "heading_line_height": 110,
         "body_size": 15,
         "body_size_mobile": 14,
-        "body_line_height": 170,
+        "body_line_height": 150,
         "eyebrow_size": 11,
         "eyebrow_size_mobile": 10,
         "uppercase_eyebrow": true,
