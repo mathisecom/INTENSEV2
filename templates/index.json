@@ -35,6 +35,82 @@
         "product_card_text_color": ""
       }
     },
+    "universcuisine_TYG34M": {
+      "type": "universcuisine",
+      "blocks": {
+        "universe_XJp3PA": {
+          "type": "universe",
+          "settings": {
+            "eyebrow": "",
+            "title": "Bien cuisiner.",
+            "description": "Poêles, casseroles et ensembles pour le quotidien.",
+            "button_label": "Découvrir",
+            "button_link": "",
+            "open_new_tab": false,
+            "image_position": "center",
+            "text_width": 33,
+            "reverse_desktop": false,
+            "text_background": "#eeeee9",
+            "image_background": "#d6d6cc",
+            "text_color": "#25312B",
+            "muted_color": "#7B867A",
+            "link_color": "#25312B"
+          }
+        },
+        "universe_kMgFLV": {
+          "type": "universe",
+          "settings": {
+            "eyebrow": "",
+            "title": "Bien recevoir.",
+            "description": "Tables extensibles et assises pour tous vos moments.",
+            "button_label": "Découvrir",
+            "button_link": "",
+            "open_new_tab": false,
+            "image_position": "center",
+            "text_width": 40,
+            "reverse_desktop": false,
+            "text_background": "#e5eae2",
+            "image_background": "#d4d5c9",
+            "text_color": "#25312B",
+            "muted_color": "#7B867A",
+            "link_color": "#25312B"
+          }
+        }
+      },
+      "block_order": [
+        "universe_XJp3PA",
+        "universe_kMgFLV"
+      ],
+      "name": "Univers cuisine & repas",
+      "settings": {
+        "heading": "",
+        "heading_alignment": "left",
+        "background": "#FDFDF4",
+        "heading_color": "#24312B",
+        "desktop_columns": "2",
+        "max_width": 1240,
+        "cards_gap": 20,
+        "card_height": 350,
+        "corner_radius": 3,
+        "card_padding": 36,
+        "heading_size_desktop": 32,
+        "card_title_size_desktop": 33,
+        "image_fit": "cover",
+        "horizontal_padding": 36,
+        "padding_top": 12,
+        "padding_bottom": 28,
+        "mobile_layout": "split",
+        "mobile_image_first": false,
+        "mobile_text_width": 50,
+        "mobile_image_height": 220,
+        "heading_size_mobile": 26,
+        "card_title_size_mobile": 24,
+        "card_padding_mobile": 24,
+        "horizontal_padding_mobile": 16,
+        "padding_top_mobile": 30,
+        "padding_bottom_mobile": 30
+      }
+    },
     "faq": {
       "type": "faq",
       "blocks": {
@@ -139,6 +215,7 @@
   },
   "order": [
     "featured_collection_YQfNN9",
+    "universcuisine_TYG34M",
     "faq"
   ]
 }
