@@ -1,0 +1,402 @@
+{% comment %}
+  ORSELYNO — Cartes univers cuisine & repas
+  Fichier : sections/univers-cuisine-repas.liquid
+  Polices héritées du thème. Tout est modifiable dans l'éditeur Shopify.
+{% endcomment %}
+
+<section
+  id="univers-{{ section.id }}"
+  class="ou-univers ou-univers--mobile-{{ section.settings.mobile_layout }}{% if section.settings.mobile_image_first %} ou-univers--image-first{% endif %}"
+  style="
+    --ou-bg: {{ section.settings.background }};
+    --ou-ink: {{ section.settings.heading_color }};
+    --ou-width: {{ section.settings.max_width }}px;
+    --ou-gap: {{ section.settings.cards_gap }}px;
+    --ou-radius: {{ section.settings.corner_radius }}px;
+    --ou-pt: {{ section.settings.padding_top }}px;
+    --ou-pb: {{ section.settings.padding_bottom }}px;
+    --ou-px: {{ section.settings.horizontal_padding }}px;
+    --ou-pt-mobile: {{ section.settings.padding_top_mobile }}px;
+    --ou-pb-mobile: {{ section.settings.padding_bottom_mobile }}px;
+    --ou-px-mobile: {{ section.settings.horizontal_padding_mobile }}px;
+    --ou-heading-desktop: {{ section.settings.heading_size_desktop }}px;
+    --ou-heading-mobile: {{ section.settings.heading_size_mobile }}px;
+    --ou-card-heading-desktop: {{ section.settings.card_title_size_desktop }}px;
+    --ou-card-heading-mobile: {{ section.settings.card_title_size_mobile }}px;
+    --ou-card-height: {{ section.settings.card_height }}px;
+    --ou-card-pad: {{ section.settings.card_padding }}px;
+    --ou-card-pad-mobile: {{ section.settings.card_padding_mobile }}px;
+    --ou-media-mobile-height: {{ section.settings.mobile_image_height }}px;
+    --ou-mobile-copy-width: {{ section.settings.mobile_text_width }}%;
+  "
+>
+  <div class="ou-univers__container">
+    {% if section.settings.heading != blank %}
+      <h2 class="ou-univers__heading ou-univers__heading--{{ section.settings.heading_alignment }}">
+        {{ section.settings.heading | escape }}
+      </h2>
+    {% endif %}
+
+    <div class="ou-univers__grid ou-univers__grid--{{ section.settings.desktop_columns }}">
+      {% for block in section.blocks %}
+        {% if block.type == 'universe' %}
+          <article
+            class="ou-univers__card{% if block.settings.reverse_desktop %} ou-univers__card--reverse{% endif %}"
+            style="
+              --ou-card-text-bg: {{ block.settings.text_background }};
+              --ou-card-image-bg: {{ block.settings.image_background }};
+              --ou-card-text-color: {{ block.settings.text_color }};
+              --ou-card-muted-color: {{ block.settings.muted_color }};
+              --ou-card-link-color: {{ block.settings.link_color }};
+              --ou-card-copy-width: {{ block.settings.text_width }}%;
+              --ou-card-image-position: {{ block.settings.image_position }};
+            "
+            {{ block.shopify_attributes }}
+          >
+            <div class="ou-univers__copy">
+              {% if block.settings.eyebrow != blank %}
+                <div class="ou-univers__eyebrow">{{ block.settings.eyebrow | escape }}</div>
+              {% endif %}
+
+              {% if block.settings.title != blank %}
+                <h3 class="ou-univers__card-title">{{ block.settings.title | escape | newline_to_br }}</h3>
+              {% endif %}
+
+              {% if block.settings.description != blank %}
+                <div class="ou-univers__description">{{ block.settings.description | escape | newline_to_br }}</div>
+              {% endif %}
+
+              {% if block.settings.button_label != blank %}
+                {% if block.settings.button_link != blank %}
+                  <a class="ou-univers__link" href="{{ block.settings.button_link }}" {% if block.settings.open_new_tab %}target="_blank" rel="noopener noreferrer"{% endif %}>
+                    <span>{{ block.settings.button_label | escape }}</span>
+                    <span class="ou-univers__arrow" aria-hidden="true">↗</span>
+                  </a>
+                {% else %}
+                  <span class="ou-univers__link ou-univers__link--demo" title="Ajouter un lien dans les réglages du bloc">
+                    <span>{{ block.settings.button_label | escape }}</span>
+                    <span class="ou-univers__arrow" aria-hidden="true">↗</span>
+                  </span>
+                {% endif %}
+              {% endif %}
+            </div>
+
+            <div class="ou-univers__media">
+              {% if block.settings.image != blank %}
+                {% assign ou_image_alt = block.settings.image.alt | default: block.settings.title | strip_html %}
+                {{ block.settings.image | image_url: width: 1600 | image_tag: loading: 'lazy', widths: '320, 480, 640, 800, 1000, 1200, 1600', sizes: '(min-width: 1100px) 38vw, (min-width: 750px) 45vw, 100vw', alt: ou_image_alt, class: 'ou-univers__image' }}
+              {% elsif forloop.index == 1 %}
+                <svg class="ou-univers__illustration" viewBox="0 0 640 370" role="img" aria-label="Illustration de poêles de cuisine" xmlns="http://www.w3.org/2000/svg">
+                  <ellipse cx="332" cy="317" rx="203" ry="19" fill="#6c7268" opacity=".10"/>
+                  <path d="M392 156L588 13Q615 4 611 23L449 207" fill="#758177" stroke="#4e6057" stroke-width="5" stroke-linejoin="round"/>
+                  <g transform="rotate(-11 310 188)">
+                    <ellipse cx="302" cy="167" rx="151" ry="61" fill="#d6ded6" stroke="#566960" stroke-width="7"/>
+                    <ellipse cx="302" cy="169" rx="138" ry="50" fill="#e6eae1" stroke="#87978d" stroke-width="8"/>
+                    <path d="M151 168Q140 221 302 240Q461 224 453 168" fill="#c4cec3" stroke="#566960" stroke-width="6"/>
+                    <path d="M164 204Q294 266 442 205" fill="none" stroke="#86968c" stroke-width="5"/>
+                  </g>
+                  <path d="M414 232L636 137Q660 141 632 160L450 278" fill="#68766d" stroke="#4e6057" stroke-width="6" stroke-linejoin="round"/>
+                  <g transform="rotate(5 300 247)">
+                    <ellipse cx="298" cy="237" rx="169" ry="62" fill="#e4e8e1" stroke="#586b60" stroke-width="8"/>
+                    <ellipse cx="298" cy="236" rx="153" ry="51" fill="#dce2db" stroke="#9eaca1" stroke-width="7"/>
+                    <path d="M128 236Q123 292 298 311Q477 291 468 236" fill="#cad2c8" stroke="#586b60" stroke-width="7"/>
+                    <path d="M142 268Q293 332 457 268" fill="none" stroke="#8d9c90" stroke-width="5"/>
+                  </g>
+                </svg>
+              {% else %}
+                <svg class="ou-univers__illustration" viewBox="0 0 640 370" role="img" aria-label="Illustration d'une table à manger" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M0 252H640" stroke="#c1c4b5" stroke-width="3"/>
+                  <rect x="45" y="22" width="120" height="164" rx="4" fill="#eff0e8" opacity=".60"/>
+                  <path d="M105 22V186M45 102H165" stroke="#b1b7aa" stroke-width="4"/>
+                  <ellipse cx="367" cy="318" rx="230" ry="18" fill="#807d6b" opacity=".10"/>
+                  <path d="M151 219L177 218L153 340Q152 348 141 348L134 347Z" fill="#77563b"/>
+                  <path d="M502 219L531 217L552 331Q553 341 544 343L529 341Z" fill="#745139"/>
+                  <path d="M272 222L297 220L283 318Q281 326 270 326L261 324Z" fill="#806044"/>
+                  <path d="M589 210L610 211L634 319Q634 327 625 330L613 327Z" fill="#7b583a"/>
+                  <path d="M115 192Q112 184 128 180L530 142Q542 140 554 146L628 185Q639 192 624 204L241 265Q224 268 213 264Z" fill="#bf9670" stroke="#927052" stroke-width="5"/>
+                  <path d="M115 192L213 264Q226 272 241 268L624 205L624 214L244 281Q224 286 210 278L114 207Z" fill="#aa805d"/>
+                  <path d="M183 197L528 160M231 236L584 188" stroke="#dfb28a" stroke-width="3" opacity=".50"/>
+                  <path d="M438 155L444 127L465 126L471 159" fill="#d2cbbb"/>
+                  <path d="M453 129Q446 115 449 103Q453 93 457 84M452 116Q469 115 469 105" fill="none" stroke="#667966" stroke-width="4" stroke-linecap="round"/>
+                </svg>
+              {% endif %}
+            </div>
+          </article>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<style>
+  #univers-{{ section.id }} {
+    background: var(--ou-bg);
+    color: var(--ou-ink);
+    padding: var(--ou-pt) var(--ou-px) var(--ou-pb);
+    /* Utilise automatiquement les polices du thème Shopify. */
+    font-family: var(--font-body-family, var(--text-font-family, var(--body-font-family, inherit)));
+  }
+  #univers-{{ section.id }} *,
+  #univers-{{ section.id }} *::before,
+  #univers-{{ section.id }} *::after { box-sizing: border-box; }
+  #univers-{{ section.id }} .ou-univers__container {
+    width: 100%; max-width: var(--ou-width); margin: 0 auto;
+  }
+  #univers-{{ section.id }} .ou-univers__heading {
+    color: var(--ou-ink);
+    font-family: var(--font-heading-family, var(--heading-font-family, inherit));
+    font-style: normal;
+    font-size: var(--ou-heading-desktop);
+    line-height: 1.12;
+    letter-spacing: -.035em;
+    margin: 0 0 32px;
+    padding: 0;
+    font-weight: var(--font-heading-weight, var(--heading-font-weight, 400));
+  }
+  #univers-{{ section.id }} .ou-univers__heading--center { text-align: center; }
+  #univers-{{ section.id }} .ou-univers__heading--right { text-align: right; }
+  #univers-{{ section.id }} .ou-univers__grid {
+    display: grid; grid-template-columns: repeat(2, minmax(0,1fr));
+    gap: var(--ou-gap); align-items: stretch;
+  }
+  #univers-{{ section.id }} .ou-univers__grid--1 { grid-template-columns: minmax(0,1fr); }
+  #univers-{{ section.id }} .ou-univers__card {
+    display: grid;
+    grid-template-columns: var(--ou-card-copy-width) minmax(0, 1fr);
+    min-height: var(--ou-card-height);
+    min-width: 0;
+    overflow: hidden;
+    border-radius: var(--ou-radius);
+    isolation: isolate;
+  }
+  #univers-{{ section.id }} .ou-univers__card--reverse {
+    grid-template-columns: minmax(0, 1fr) var(--ou-card-copy-width);
+  }
+  #univers-{{ section.id }} .ou-univers__copy {
+    background: var(--ou-card-text-bg);
+    color: var(--ou-card-text-color);
+    padding: var(--ou-card-pad);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    min-width: 0;
+  }
+  #univers-{{ section.id }} .ou-univers__card--reverse .ou-univers__copy { grid-column: 2; grid-row: 1; }
+  #univers-{{ section.id }} .ou-univers__eyebrow {
+    color: var(--ou-card-muted-color);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    line-height: 1.5;
+    margin: 0 0 19px;
+  }
+  #univers-{{ section.id }} .ou-univers__card-title {
+    font-family: var(--font-heading-family, var(--heading-font-family, inherit));
+    font-weight: var(--font-heading-weight, var(--heading-font-weight, 400));
+    font-style: normal;
+    font-size: var(--ou-card-heading-desktop);
+    line-height: 1.05;
+    letter-spacing: -.04em;
+    margin: 0 0 20px;
+    color: var(--ou-card-text-color);
+    overflow-wrap: anywhere;
+  }
+  #univers-{{ section.id }} .ou-univers__description {
+    color: var(--ou-card-muted-color);
+    font-size: 12px;
+    line-height: 1.7;
+    margin: 0 0 27px;
+    overflow-wrap: anywhere;
+  }
+  #univers-{{ section.id }} .ou-univers__link {
+    display: inline-flex;
+    gap: 12px;
+    align-items: center;
+    width: fit-content;
+    max-width: 100%;
+    padding: 0 0 6px;
+    border: 0;
+    border-bottom: 1px solid currentColor;
+    border-radius: 0;
+    background: transparent;
+    font: inherit;
+    font-weight: 650;
+    font-size: 12px;
+    line-height: 1.4;
+    text-decoration: none;
+    color: var(--ou-card-link-color);
+    transition: opacity .2s ease;
+  }
+  #univers-{{ section.id }} a.ou-univers__link:hover { opacity: .68; }
+  #univers-{{ section.id }} a.ou-univers__link:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+  #univers-{{ section.id }} .ou-univers__link--demo { cursor: default; }
+  #univers-{{ section.id }} .ou-univers__arrow { font-size: 15px; line-height: 1; transition: transform .2s ease; }
+  #univers-{{ section.id }} a.ou-univers__link:hover .ou-univers__arrow { transform: translate(2px,-2px); }
+  #univers-{{ section.id }} .ou-univers__media {
+    position: relative;
+    overflow: hidden;
+    min-width: 0;
+    background: var(--ou-card-image-bg);
+  }
+  #univers-{{ section.id }} .ou-univers__card--reverse .ou-univers__media { grid-column: 1; grid-row: 1; }
+  #univers-{{ section.id }} .ou-univers__image,
+  #univers-{{ section.id }} .ou-univers__illustration {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0;
+  }
+  #univers-{{ section.id }} .ou-univers__image {
+    object-fit: {% if section.settings.image_fit == 'contain' %}contain{% else %}cover{% endif %};
+    object-position: var(--ou-card-image-position);
+  }
+  #univers-{{ section.id }} .ou-univers__illustration { object-fit: contain; }
+
+  @media (max-width: 1199px) and (min-width: 750px) {
+    #univers-{{ section.id }} .ou-univers__card-title {
+      font-size: clamp(25px, 2.8vw, var(--ou-card-heading-desktop));
+    }
+    #univers-{{ section.id }} .ou-univers__copy { padding: clamp(16px, 2.5vw, var(--ou-card-pad)); }
+  }
+
+  @media (max-width: 749px) {
+    #univers-{{ section.id }} {
+      padding: var(--ou-pt-mobile) var(--ou-px-mobile) var(--ou-pb-mobile);
+    }
+    #univers-{{ section.id }} .ou-univers__heading {
+      font-size: var(--ou-heading-mobile);
+      margin-bottom: 22px;
+    }
+    #univers-{{ section.id }} .ou-univers__grid,
+    #univers-{{ section.id }} .ou-univers__grid--1 {
+      grid-template-columns: minmax(0, 1fr);
+      gap: min(var(--ou-gap), 16px);
+    }
+    #univers-{{ section.id }} .ou-univers__card,
+    #univers-{{ section.id }} .ou-univers__card--reverse { min-height: 0; }
+    #univers-{{ section.id }} .ou-univers__copy { padding: var(--ou-card-pad-mobile); }
+    #univers-{{ section.id }} .ou-univers__card-title { font-size: var(--ou-card-heading-mobile); margin-bottom: 14px; }
+    #univers-{{ section.id }} .ou-univers__eyebrow { font-size: 9px; margin-bottom: 13px; }
+    #univers-{{ section.id }} .ou-univers__description { font-size: 12px; margin-bottom: 20px; }
+    #univers-{{ section.id }}.ou-univers--mobile-stack .ou-univers__card {
+      display: flex;
+      flex-direction: column;
+    }
+    #univers-{{ section.id }}.ou-univers--mobile-stack .ou-univers__media {
+      min-height: var(--ou-media-mobile-height);
+    }
+    #univers-{{ section.id }}.ou-univers--mobile-stack.ou-univers--image-first .ou-univers__media { order: -1; }
+    #univers-{{ section.id }}.ou-univers--mobile-split .ou-univers__card,
+    #univers-{{ section.id }}.ou-univers--mobile-split .ou-univers__card--reverse {
+      grid-template-columns: var(--ou-mobile-copy-width) minmax(0,1fr);
+      min-height: var(--ou-media-mobile-height);
+    }
+    #univers-{{ section.id }}.ou-univers--mobile-split .ou-univers__copy,
+    #univers-{{ section.id }}.ou-univers--mobile-split .ou-univers__card--reverse .ou-univers__copy { grid-column: 1; grid-row: 1; }
+    #univers-{{ section.id }}.ou-univers--mobile-split .ou-univers__media,
+    #univers-{{ section.id }}.ou-univers--mobile-split .ou-univers__card--reverse .ou-univers__media { grid-column: 2; grid-row: 1; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    #univers-{{ section.id }} .ou-univers__link,
+    #univers-{{ section.id }} .ou-univers__arrow { transition: none; }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Univers cuisine & repas",
+  "tag": "div",
+  "class": "section-univers-cuisine-repas",
+  "settings": [
+    { "type": "header", "content": "Titre de la section" },
+    { "type": "text", "id": "heading", "label": "Titre principal", "default": "À chaque espace, son essentiel." },
+    { "type": "select", "id": "heading_alignment", "label": "Alignement du titre", "options": [{ "value": "left", "label": "Gauche" }, { "value": "center", "label": "Centre" }, { "value": "right", "label": "Droite" }], "default": "left" },
+    { "type": "color", "id": "background", "label": "Couleur de fond de section", "default": "#FAF9F6" },
+    { "type": "color", "id": "heading_color", "label": "Couleur du titre principal", "default": "#24312B" },
+    { "type": "header", "content": "Disposition — ordinateur" },
+    { "type": "select", "id": "desktop_columns", "label": "Nombre de colonnes", "options": [{ "value": "1", "label": "1 colonne" }, { "value": "2", "label": "2 colonnes" }], "default": "2" },
+    { "type": "range", "id": "max_width", "label": "Largeur maximale (px)", "min": 900, "max": 1600, "step": 20, "default": 1240 },
+    { "type": "range", "id": "cards_gap", "label": "Espace entre les cartes (px)", "min": 0, "max": 60, "step": 2, "default": 20 },
+    { "type": "range", "id": "card_height", "label": "Hauteur minimale des cartes (px)", "min": 260, "max": 600, "step": 10, "default": 350 },
+    { "type": "range", "id": "corner_radius", "label": "Arrondi des cartes (px)", "min": 0, "max": 40, "step": 1, "default": 3 },
+    { "type": "range", "id": "card_padding", "label": "Marge intérieure des cartes (px)", "min": 12, "max": 60, "step": 2, "default": 36 },
+    { "type": "range", "id": "heading_size_desktop", "label": "Taille du titre principal (px)", "min": 24, "max": 70, "step": 1, "default": 48 },
+    { "type": "range", "id": "card_title_size_desktop", "label": "Taille des titres des cartes (px)", "min": 22, "max": 54, "step": 1, "default": 43 },
+    { "type": "select", "id": "image_fit", "label": "Affichage des images", "options": [{ "value": "cover", "label": "Remplir la zone (recadrage possible)" }, { "value": "contain", "label": "Image entière (espaces possibles)" }], "default": "cover" },
+    { "type": "range", "id": "horizontal_padding", "label": "Marges latérales (px)", "min": 0, "max": 100, "step": 2, "default": 36 },
+    { "type": "range", "id": "padding_top", "label": "Espace au-dessus (px)", "min": 0, "max": 120, "step": 4, "default": 12 },
+    { "type": "range", "id": "padding_bottom", "label": "Espace en dessous (px)", "min": 0, "max": 120, "step": 4, "default": 28 },
+    { "type": "header", "content": "Disposition — mobile" },
+    { "type": "select", "id": "mobile_layout", "label": "Présentation des cartes", "options": [{ "value": "stack", "label": "Texte puis image (recommandé)" }, { "value": "split", "label": "Texte à gauche, image à droite" }], "default": "stack" },
+    { "type": "checkbox", "id": "mobile_image_first", "label": "Image au-dessus du texte (mode empilé)", "default": false },
+    { "type": "range", "id": "mobile_text_width", "label": "Largeur texte en mode côte à côte (%)", "min": 35, "max": 65, "step": 1, "default": 48 },
+    { "type": "range", "id": "mobile_image_height", "label": "Hauteur image / carte mobile (px)", "min": 150, "max": 450, "step": 10, "default": 220 },
+    { "type": "range", "id": "heading_size_mobile", "label": "Taille titre principal mobile (px)", "min": 22, "max": 46, "step": 1, "default": 32 },
+    { "type": "range", "id": "card_title_size_mobile", "label": "Taille titres cartes mobile (px)", "min": 22, "max": 42, "step": 1, "default": 33 },
+    { "type": "range", "id": "card_padding_mobile", "label": "Marge intérieure cartes mobile (px)", "min": 12, "max": 40, "step": 1, "default": 24 },
+    { "type": "range", "id": "horizontal_padding_mobile", "label": "Marges latérales mobile (px)", "min": 0, "max": 36, "step": 2, "default": 16 },
+    { "type": "range", "id": "padding_top_mobile", "label": "Espace au-dessus mobile (px)", "min": 0, "max": 100, "step": 2, "default": 30 },
+    { "type": "range", "id": "padding_bottom_mobile", "label": "Espace en dessous mobile (px)", "min": 0, "max": 100, "step": 2, "default": 30 }
+  ],
+  "blocks": [
+    {
+      "type": "universe",
+      "name": "Carte univers",
+      "settings": [
+        { "type": "header", "content": "Textes et navigation" },
+        { "type": "text", "id": "eyebrow", "label": "Petite étiquette", "default": "01 / LA CUISINE" },
+        { "type": "textarea", "id": "title", "label": "Titre de la carte", "default": "Bien cuisiner." },
+        { "type": "textarea", "id": "description", "label": "Description", "default": "Poêles, casseroles et ensembles pour le quotidien." },
+        { "type": "text", "id": "button_label", "label": "Texte du bouton", "default": "Découvrir" },
+        { "type": "url", "id": "button_link", "label": "Lien du bouton (collection, page...)" },
+        { "type": "checkbox", "id": "open_new_tab", "label": "Ouvrir le lien dans un nouvel onglet", "default": false },
+        { "type": "header", "content": "Image et disposition" },
+        { "type": "image_picker", "id": "image", "label": "Image de la carte" },
+        { "type": "select", "id": "image_position", "label": "Cadrage de l'image", "options": [{ "value": "center", "label": "Centre" }, { "value": "left center", "label": "Gauche" }, { "value": "right center", "label": "Droite" }, { "value": "center top", "label": "Haut" }, { "value": "center bottom", "label": "Bas" }], "default": "center" },
+        { "type": "range", "id": "text_width", "label": "Largeur de la partie texte (%)", "min": 25, "max": 65, "step": 1, "default": 33 },
+        { "type": "checkbox", "id": "reverse_desktop", "label": "Mettre l'image à gauche sur ordinateur", "default": false },
+        { "type": "header", "content": "Couleurs de la carte" },
+        { "type": "color", "id": "text_background", "label": "Fond de la zone texte", "default": "#EEEEE9" },
+        { "type": "color", "id": "image_background", "label": "Fond de la zone image", "default": "#D6D6CC" },
+        { "type": "color", "id": "text_color", "label": "Couleur du titre de la carte", "default": "#25312B" },
+        { "type": "color", "id": "muted_color", "label": "Couleur description et étiquette", "default": "#7B867A" },
+        { "type": "color", "id": "link_color", "label": "Couleur du lien", "default": "#25312B" }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "Univers cuisine & repas",
+      "blocks": [
+        {
+          "type": "universe",
+          "settings": {
+            "eyebrow": "01 / LA CUISINE",
+            "title": "Bien cuisiner.",
+            "description": "Poêles, casseroles et ensembles pour le quotidien.",
+            "button_label": "Découvrir",
+            "text_background": "#EEEEE9",
+            "image_background": "#D6D6CC"
+          }
+        },
+        {
+          "type": "universe",
+          "settings": {
+            "eyebrow": "02 / LE REPAS",
+            "text_width": 40,
+            "title": "Bien recevoir.",
+            "description": "Tables extensibles et assises pour tous vos moments.",
+            "button_label": "Découvrir",
+            "text_background": "#E5EAE2",
+            "image_background": "#D4D5C9"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
