@@ -88,7 +88,7 @@
         "background": "#FDFDF4",
         "heading_color": "#24312B",
         "desktop_columns": "2",
-        "max_width": 1240,
+        "max_width": 1500,
         "cards_gap": 20,
         "card_height": 350,
         "corner_radius": 3,
@@ -107,7 +107,7 @@
         "card_title_size_mobile": 24,
         "card_padding_mobile": 24,
         "horizontal_padding_mobile": 16,
-        "padding_top_mobile": 30,
+        "padding_top_mobile": 0,
         "padding_bottom_mobile": 30
       }
     },
