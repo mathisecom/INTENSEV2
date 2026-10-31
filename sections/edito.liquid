@@ -92,7 +92,7 @@
   #{{ section_hero_id }} .ors-editorial__eyebrow {
     margin: 0 0 {{ section.settings.eyebrow_spacing }}px;
     color: var(--ors-eyebrow-color);
-    font-family: var(--font-body-family, inherit);
+    font-family: inherit;
     font-size: {{ section.settings.eyebrow_size }}px;
     font-weight: 700;
     line-height: 1.5;
@@ -103,21 +103,26 @@
   #{{ section_hero_id }} .ors-editorial__heading {
     margin: 0;
     color: var(--ors-headline-color);
-    font-family: var(--font-heading-family, Georgia, serif);
-    font-style: var(--font-heading-style, normal);
-    font-weight: var(--font-heading-weight, 400);
-    font-size: var(--ors-desktop-heading);
-    line-height: {{ section.settings.heading_line_height | divided_by: 100.0 }};
-    letter-spacing: -0.035em;
+    /* En mode thème, la classe .h2 et le CSS natif du thème pilotent la typographie. */
+    {% unless section.settings.use_theme_typography %}
+      font-family: var(--font-heading-family, var(--heading-font-family, inherit));
+      font-style: var(--font-heading-style, var(--heading-font-style, normal));
+      font-weight: var(--font-heading-weight, var(--heading-font-weight, inherit));
+      font-size: var(--ors-desktop-heading);
+      line-height: {{ section.settings.heading_line_height | divided_by: 100.0 }};
+      letter-spacing: -0.035em;
+    {% endunless %}
     overflow-wrap: anywhere;
   }
 
   #{{ section_hero_id }} .ors-editorial__description {
     margin-top: {{ section.settings.description_spacing }}px;
     color: var(--ors-text-color);
-    font-family: var(--font-body-family, inherit);
-    font-size: {{ section.settings.body_size }}px;
-    line-height: {{ section.settings.body_line_height | divided_by: 100.0 }};
+    font-family: inherit;
+    {% unless section.settings.use_theme_typography %}
+      font-size: {{ section.settings.body_size }}px;
+      line-height: {{ section.settings.body_line_height | divided_by: 100.0 }};
+    {% endunless %}
   }
 
   #{{ section_hero_id }} .ors-editorial__description p { margin: 0 0 0.85em; }
@@ -137,7 +142,7 @@
     color: var(--ors-button-text);
     border: 1px solid var(--ors-button-color);
     border-radius: {{ section.settings.button_corner_radius }}px;
-    font-family: var(--font-body-family, inherit);
+    font-family: inherit;
     font-size: {{ section.settings.button_font_size }}px;
     font-weight: 700;
     line-height: 1.25;
@@ -207,7 +212,7 @@
     left: {{ section.settings.caption_inset }}px;
     margin: 0;
     color: var(--ors-caption-color);
-    font-family: var(--font-body-family, inherit);
+    font-family: inherit;
     font-size: {{ section.settings.caption_size }}px;
     font-weight: 700;
     letter-spacing: {{ section.settings.caption_letter_spacing }}px;
@@ -220,9 +225,11 @@
     #{{ section_hero_id }} .ors-editorial__content {
       padding: {{ section.settings.text_padding_desktop | times: 0.65 | round }}px;
     }
-    #{{ section_hero_id }} .ors-editorial__heading {
-      font-size: min(var(--ors-desktop-heading), 4.4vw);
-    }
+    {% unless section.settings.use_theme_typography %}
+      #{{ section_hero_id }} .ors-editorial__heading {
+        font-size: min(var(--ors-desktop-heading), 4.4vw);
+      }
+    {% endunless %}
   }
 
   @media (max-width: 749px) {
@@ -242,8 +249,10 @@
       align-items: {% if section.settings.mobile_text_align == 'center' %}center{% elsif section.settings.mobile_text_align == 'right' %}flex-end{% else %}flex-start{% endif %};
     }
     #{{ section_hero_id }} .ors-editorial__eyebrow { font-size: {{ section.settings.eyebrow_size_mobile }}px; }
-    #{{ section_hero_id }} .ors-editorial__heading { font-size: var(--ors-mobile-heading); }
-    #{{ section_hero_id }} .ors-editorial__description { font-size: {{ section.settings.body_size_mobile }}px; }
+    {% unless section.settings.use_theme_typography %}
+      #{{ section_hero_id }} .ors-editorial__heading { font-size: var(--ors-mobile-heading); }
+      #{{ section_hero_id }} .ors-editorial__description { font-size: {{ section.settings.body_size_mobile }}px; }
+    {% endunless %}
     #{{ section_hero_id }} .ors-editorial__button {
       align-self: {% if section.settings.mobile_text_align == 'center' %}center{% elsif section.settings.mobile_text_align == 'right' %}flex-end{% else %}flex-start{% endif %};
       {% if section.settings.mobile_button_full_width %}width: 100%;{% endif %}
@@ -281,7 +290,7 @@
           <p class="ors-editorial__eyebrow">{{ section.settings.eyebrow | escape }}</p>
         {%- endif -%}
         {%- if section.settings.heading != blank -%}
-          <h2 class="ors-editorial__heading">{{ section.settings.heading | escape | newline_to_br }}</h2>
+          <h2 class="ors-editorial__heading h2">{{ section.settings.heading | escape | newline_to_br }}</h2>
         {%- endif -%}
         {%- if section.settings.description != blank -%}
           <div class="ors-editorial__description rte">{{ section.settings.description }}</div>
@@ -398,7 +407,8 @@
     { "type": "range", "id": "border_width", "label": "Épaisseur bordure (px)", "min": 0, "max": 4, "step": 1, "default": 0 },
 
     { "type": "header", "content": "Typographie" },
-    { "type": "paragraph", "content": "Les polices du titre et du texte suivent automatiquement les polices de votre thème Shopify." },
+    { "type": "checkbox", "id": "use_theme_typography", "label": "Reprendre les styles typographiques du thème", "default": true },
+    { "type": "paragraph", "content": "Activé : le titre suit le style H2 et la description suit le texte de votre thème (polices, tailles, graisses, interlignes). Désactivé : utilisez les tailles ci-dessous tout en conservant les familles de polices du thème." },
     { "type": "range", "id": "heading_size_desktop", "label": "Taille du titre PC (px)", "min": 28, "max": 80, "step": 2, "default": 56 },
     { "type": "range", "id": "heading_size_mobile", "label": "Taille du titre mobile (px)", "min": 24, "max": 60, "step": 2, "default": 38 },
     { "type": "range", "id": "heading_line_height", "label": "Interligne du grand titre (%)", "min": 90, "max": 150, "step": 5, "default": 110 },
