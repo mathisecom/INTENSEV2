@@ -9,6 +9,82 @@
  */
 {
   "sections": {
+    "bandeaudefilant_qEPbyN": {
+      "type": "bandeaudefilant",
+      "blocks": {
+        "message_y9FETG": {
+          "type": "message",
+          "settings": {
+            "text": "DURABLE",
+            "link": ""
+          }
+        },
+        "message_8UX3VF": {
+          "type": "message",
+          "settings": {
+            "text": "SANS PFAS*",
+            "link": ""
+          }
+        },
+        "message_647hfY": {
+          "type": "message",
+          "settings": {
+            "text": "TOUS FEUX",
+            "link": ""
+          }
+        },
+        "message_87a4FL": {
+          "type": "message",
+          "settings": {
+            "text": "ULTRA LÉGER",
+            "link": ""
+          }
+        },
+        "message_hxFNrm": {
+          "type": "message",
+          "settings": {
+            "text": "ANTIADHÉRENT",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "message_y9FETG",
+        "message_8UX3VF",
+        "message_647hfY",
+        "message_87a4FL",
+        "message_hxFNrm"
+      ],
+      "name": "Bandeau défilant infini",
+      "settings": {
+        "autoplay": true,
+        "direction": "left",
+        "speed_desktop": 38,
+        "speed_mobile": 60,
+        "repetitions": 5,
+        "pause_on_hover": true,
+        "background_color": "#292722",
+        "text_color": "#FDFDF4",
+        "separator_color": "#FDFDF4",
+        "show_border": false,
+        "border_color": "#FDFDF4",
+        "font_choice": "body",
+        "font_size_desktop": 12,
+        "font_size_mobile": 10,
+        "font_weight": "700",
+        "uppercase": true,
+        "letter_spacing": 1,
+        "padding_desktop": 9,
+        "padding_mobile": 10,
+        "item_gap_desktop": 20,
+        "item_gap_mobile": 14,
+        "separator_gap": 14,
+        "separator_type": "dot",
+        "custom_separator": "•",
+        "separator_size": 11,
+        "accessible_title": "Les avantages de nos produits"
+      }
+    },
     "featured_collection_YQfNN9": {
       "type": "featured-collection",
       "name": "Featured collection",
@@ -52,9 +128,9 @@
             "reverse_desktop": false,
             "text_background": "#eeeee9",
             "image_background": "#d6d6cc",
-            "text_color": "#25312B",
-            "muted_color": "#7B867A",
-            "link_color": "#25312B"
+            "text_color": "#25312b",
+            "muted_color": "#7b867a",
+            "link_color": "#25312b"
           }
         },
         "universe_kMgFLV": {
@@ -71,9 +147,9 @@
             "reverse_desktop": false,
             "text_background": "#e5eae2",
             "image_background": "#d4d5c9",
-            "text_color": "#25312B",
-            "muted_color": "#7B867A",
-            "link_color": "#25312B"
+            "text_color": "#25312b",
+            "muted_color": "#7b867a",
+            "link_color": "#25312b"
           }
         }
       },
@@ -85,8 +161,8 @@
       "settings": {
         "heading": "",
         "heading_alignment": "left",
-        "background": "#FDFDF4",
-        "heading_color": "#24312B",
+        "background": "#fdfdf4",
+        "heading_color": "#24312b",
         "desktop_columns": "2",
         "max_width": 1500,
         "cards_gap": 20,
@@ -307,6 +383,7 @@
     }
   },
   "order": [
+    "bandeaudefilant_qEPbyN",
     "featured_collection_YQfNN9",
     "universcuisine_TYG34M",
     "rich_text_pPD7kk",
