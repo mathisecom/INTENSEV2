@@ -16,6 +16,7 @@
       "blocks": {
         "message": {
           "type": "message",
+          "disabled": true,
           "settings": {
             "text": "✦ Offre D'Automne – 30 % de réduction ! ✦",
             "url": ""
