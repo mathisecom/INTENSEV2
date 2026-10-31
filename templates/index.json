@@ -199,7 +199,7 @@
         "side_padding": 32,
         "corner_radius": 0,
         "border_width": 0,
-        "heading_size_desktop": 56,
+        "heading_size_desktop": 40,
         "heading_size_mobile": 30,
         "heading_line_height": 110,
         "body_size": 15,
