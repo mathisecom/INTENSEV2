@@ -1,0 +1,288 @@
+{% comment %}
+  Section Shopify 2.0 — Grille d'avantages personnalisable
+  Utilisation : sections/miaora-avantages-icones.liquid
+{% endcomment %}
+
+{% if section.settings.font_family == 'manrope' %}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+{% endif %}
+
+<section
+  id="miaora-features-{{ section.id }}"
+  class="miaora-features"
+  style="
+    --mf-section-bg: {{ section.settings.section_background }};
+    --mf-card-bg: {{ section.settings.card_background }};
+    --mf-border: {{ section.settings.border_color }};
+    --mf-text: {{ section.settings.text_color }};
+    --mf-icon: {{ section.settings.icon_color }};
+    --mf-width: {{ section.settings.max_width }}px;
+    --mf-columns-pc: {{ section.settings.desktop_columns }};
+    --mf-columns-mobile: {{ section.settings.mobile_columns }};
+    --mf-height-pc: {{ section.settings.desktop_height }}px;
+    --mf-height-mobile: {{ section.settings.mobile_height }}px;
+    --mf-gap-pc: {{ section.settings.desktop_gap }}px;
+    --mf-gap-mobile: {{ section.settings.mobile_gap }}px;
+    --mf-padding-pc: {{ section.settings.side_padding_desktop }}px;
+    --mf-padding-mobile: {{ section.settings.side_padding_mobile }}px;
+    --mf-padding-top: {{ section.settings.padding_top }}px;
+    --mf-padding-bottom: {{ section.settings.padding_bottom }}px;
+    --mf-corner: {{ section.settings.corner_radius }}px;
+    --mf-font-size-pc: {{ section.settings.font_size_desktop }}px;
+    --mf-font-size-mobile: {{ section.settings.font_size_mobile }}px;
+    --mf-font-weight: {{ section.settings.font_weight }};
+    --mf-line-height: {{ section.settings.line_height }};
+    --mf-icon-size-pc: {{ section.settings.icon_size_desktop }}px;
+    --mf-icon-size-mobile: {{ section.settings.icon_size_mobile }}px;
+    --mf-icon-stroke: {{ section.settings.icon_stroke }};
+    --mf-icon-gap-pc: {{ section.settings.icon_gap_desktop }}px;
+    --mf-icon-gap-mobile: {{ section.settings.icon_gap_mobile }}px;
+    --mf-font: {% if section.settings.font_family == 'manrope' %}'Manrope', sans-serif{% else %}inherit{% endif %};
+  "
+>
+  <div class="mf-container">
+    <div class="mf-grid" role="list">
+      {% for block in section.blocks %}
+        {% liquid
+          assign tag_name = 'div'
+          if block.settings.link != blank
+            assign tag_name = 'a'
+          endif
+        %}
+        <{{ tag_name }}
+          class="mf-card"
+          role="listitem"
+          {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %}
+          {% if block.settings.text_color != blank %}style="--mf-card-text: {{ block.settings.text_color }};"{% endif %}
+          {{ block.shopify_attributes }}
+        >
+          {% if block.settings.image != blank or block.settings.icon != 'none' %}
+            <div class="mf-icon" aria-hidden="true">
+              {% if block.settings.image != blank %}
+                {{ block.settings.image | image_url: width: 160 | image_tag: loading: 'lazy', class: 'mf-icon-img', alt: '' }}
+              {% else %}
+                {% case block.settings.icon %}
+                  {% when 'fabric' %}
+                    <svg viewBox="0 0 64 64" fill="none"><path d="M32 5 59 32 32 59 5 32Z"/><text x="32" y="36" text-anchor="middle" font-size="12" font-weight="600" stroke="none" fill="currentColor">TISSU</text></svg>
+                  {% when 'legs' %}
+                    <svg viewBox="0 0 64 64" fill="none"><path d="M10 13h44M22 13l20 32M42 13 22 45"/><circle cx="15" cy="52" r="3" fill="currentColor" stroke="none"/><circle cx="23" cy="52" r="3" fill="#555" stroke="none"/><circle cx="31" cy="52" r="3" fill="#888" stroke="none"/><circle cx="39" cy="52" r="3" fill="#aaa" stroke="none"/><circle cx="47" cy="52" r="3" fill="#ccc" stroke="none"/></svg>
+                  {% when 'layers' %}
+                    <svg viewBox="0 0 64 64" fill="none"><path d="m12 23 20-10 20 10-20 10-20-10Z"/><path d="m12 29 20 10 20-10M12 29v5l20 11 20-11v-5M12 36v5l20 11 20-11v-5"/></svg>
+                  {% when 'swivel' %}
+                    <svg viewBox="0 0 64 64" fill="none"><path d="M11 29c5-13 31-17 42-3M48 20l5 6-8 1M53 35c-6 13-31 17-42 3M16 44l-5-6 8-1M32 17v27M24 25l16 16M40 25 24 41"/></svg>
+                  {% when 'users' %}
+                    <svg viewBox="0 0 64 64" fill="none"><circle cx="25" cy="24" r="8"/><path d="M10 51v-4c0-9 7-15 15-15s15 6 15 15v4H10ZM43 17a8 8 0 0 1 0 16M45 35c7 1 10 7 10 13v3h-9"/></svg>
+                  {% when 'bolt' %}
+                    <svg viewBox="0 0 64 64" fill="none"><path d="M35 5 15 34h16l-3 25 21-32H33L35 5Z"/></svg>
+                  {% when 'grill' %}
+                    <svg viewBox="0 0 64 64" fill="none"><rect x="10" y="18" width="44" height="27" rx="4"/><path d="M18 25h28M18 32h28M18 39h28M17 45l-3 10M47 45l3 10"/></svg>
+                  {% when 'heart' %}
+                    <svg viewBox="0 0 64 64" fill="none"><path d="M32 53 10 31C-2 18 17 4 32 19 47 4 66 18 54 31L32 53Z"/></svg>
+                  {% when 'truck' %}
+                    <svg viewBox="0 0 64 64" fill="none"><path d="M5 17h34v29H5zM39 26h11l9 11v9H39z"/><circle cx="17" cy="47" r="5"/><circle cx="49" cy="47" r="5"/></svg>
+                  {% when 'shield' %}
+                    <svg viewBox="0 0 64 64" fill="none"><path d="m32 6 22 10v17c0 12-9 21-22 26C19 54 10 45 10 33V16L32 6Z"/><path d="m22 32 7 7 14-15"/></svg>
+                  {% when 'check' %}
+                    <svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="25"/><path d="m19 32 9 9 18-19"/></svg>
+                  {% when 'sparkles' %}
+                    <svg viewBox="0 0 64 64" fill="none"><path d="m32 6 6 18 18 8-18 7-6 19-7-19-17-7 17-8 7-18ZM48 7v12M42 13h12"/></svg>
+                {% endcase %}
+              {% endif %}
+            </div>
+          {% endif %}
+          {% if block.settings.text != blank %}
+            <div class="mf-label">{{ block.settings.text | escape | newline_to_br }}</div>
+          {% endif %}
+        </{{ tag_name }}>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<style>
+  #miaora-features-{{ section.id }} {
+    background: var(--mf-section-bg);
+    padding: var(--mf-padding-top) var(--mf-padding-pc) var(--mf-padding-bottom);
+    font-family: var(--mf-font);
+  }
+  #miaora-features-{{ section.id }} *,
+  #miaora-features-{{ section.id }} *::before,
+  #miaora-features-{{ section.id }} *::after { box-sizing: border-box; }
+  #miaora-features-{{ section.id }} .mf-container {
+    max-width: var(--mf-width);
+    width: 100%;
+    margin-inline: auto;
+  }
+  #miaora-features-{{ section.id }} .mf-grid {
+    display: grid;
+    grid-template-columns: repeat(var(--mf-columns-pc), minmax(0, 1fr));
+    gap: var(--mf-gap-pc);
+    padding: 1px;
+    background: var(--mf-border);
+    border-radius: var(--mf-corner);
+    overflow: hidden;
+  }
+  #miaora-features-{{ section.id }} .mf-card {
+    min-width: 0;
+    min-height: var(--mf-height-pc);
+    padding: 18px 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: var(--mf-icon-gap-pc);
+    background: var(--mf-card-bg);
+    color: var(--mf-card-text, var(--mf-text));
+    text-decoration: none;
+    font-family: inherit;
+  }
+  #miaora-features-{{ section.id }} .mf-icon {
+    width: var(--mf-icon-size-pc);
+    height: var(--mf-icon-size-pc);
+    flex: 0 0 auto;
+    color: var(--mf-icon);
+    display: grid;
+    place-items: center;
+  }
+  #miaora-features-{{ section.id }} .mf-icon svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    stroke: currentColor;
+    stroke-width: var(--mf-icon-stroke);
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  #miaora-features-{{ section.id }} .mf-icon-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  #miaora-features-{{ section.id }} .mf-label {
+    font-family: inherit !important;
+    color: inherit;
+    font-size: var(--mf-font-size-pc);
+    font-weight: var(--mf-font-weight);
+    line-height: var(--mf-line-height);
+    overflow-wrap: anywhere;
+  }
+  #miaora-features-{{ section.id }} a.mf-card:hover { opacity: .83; }
+  #miaora-features-{{ section.id }} a.mf-card:focus-visible {
+    outline: 2px solid var(--mf-icon);
+    outline-offset: -4px;
+  }
+  @media screen and (max-width: 749px) {
+    #miaora-features-{{ section.id }} {
+      padding-inline: var(--mf-padding-mobile);
+    }
+    #miaora-features-{{ section.id }} .mf-grid {
+      grid-template-columns: repeat(var(--mf-columns-mobile), minmax(0, 1fr));
+      gap: var(--mf-gap-mobile);
+      padding: 0;
+      border-radius: 0;
+      background: transparent;
+      overflow: visible;
+    }
+    #miaora-features-{{ section.id }} .mf-card {
+      min-height: var(--mf-height-mobile);
+      padding: 12px 8px;
+      gap: var(--mf-icon-gap-mobile);
+      border: 1px solid var(--mf-border);
+      border-radius: var(--mf-corner);
+    }
+    #miaora-features-{{ section.id }} .mf-icon {
+      width: var(--mf-icon-size-mobile);
+      height: var(--mf-icon-size-mobile);
+    }
+    #miaora-features-{{ section.id }} .mf-label {
+      font-size: var(--mf-font-size-mobile);
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Avantages avec icônes",
+  "tag": "section",
+  "class": "section-avantages-icones",
+  "max_blocks": 12,
+  "settings": [
+    {"type":"header","content":"Mise en page"},
+    {"type":"range","id":"max_width","label":"Largeur maximale","min":800,"max":1800,"step":20,"default":1640,"unit":"px"},
+    {"type":"select","id":"desktop_columns","label":"Colonnes sur ordinateur","options":[{"value":"2","label":"2"},{"value":"3","label":"3"},{"value":"4","label":"4"},{"value":"5","label":"5"}],"default":"4"},
+    {"type":"select","id":"mobile_columns","label":"Colonnes sur mobile","options":[{"value":"1","label":"1"},{"value":"2","label":"2"}],"default":"2"},
+    {"type":"range","id":"desktop_height","label":"Hauteur minimale des cartes PC","min":140,"max":400,"step":10,"default":290,"unit":"px"},
+    {"type":"range","id":"mobile_height","label":"Hauteur minimale des cartes mobile","min":90,"max":230,"step":5,"default":125,"unit":"px"},
+    {"type":"range","id":"desktop_gap","label":"Espacement entre cartes PC","min":1,"max":20,"step":1,"default":1,"unit":"px"},
+    {"type":"range","id":"mobile_gap","label":"Espacement entre cartes mobile","min":0,"max":24,"step":1,"default":10,"unit":"px"},
+    {"type":"range","id":"side_padding_desktop","label":"Marges latérales PC","min":0,"max":80,"step":4,"default":16,"unit":"px"},
+    {"type":"range","id":"side_padding_mobile","label":"Marges latérales mobile","min":0,"max":40,"step":2,"default":10,"unit":"px"},
+    {"type":"range","id":"padding_top","label":"Marge intérieure supérieure","min":0,"max":100,"step":4,"default":0,"unit":"px"},
+    {"type":"range","id":"padding_bottom","label":"Marge intérieure inférieure","min":0,"max":100,"step":4,"default":0,"unit":"px"},
+
+    {"type":"header","content":"Couleurs et bordures"},
+    {"type":"color","id":"section_background","label":"Fond de la section","default":"#FFFFFF"},
+    {"type":"color","id":"card_background","label":"Fond des cartes","default":"#FFFFFF"},
+    {"type":"color","id":"border_color","label":"Couleur des bordures","default":"#EEEEEE"},
+    {"type":"color","id":"text_color","label":"Couleur des textes","default":"#272D34"},
+    {"type":"color","id":"icon_color","label":"Couleur des icônes","default":"#16191C"},
+    {"type":"range","id":"corner_radius","label":"Arrondi des angles","min":0,"max":24,"step":1,"default":0,"unit":"px"},
+
+    {"type":"header","content":"Typographie"},
+    {"type":"select","id":"font_family","label":"Police","options":[{"value":"manrope","label":"Manrope"},{"value":"theme","label":"Police du thème"}],"default":"manrope"},
+    {"type":"select","id":"font_weight","label":"Épaisseur du texte","options":[{"value":"400","label":"Fine / normale (400)"},{"value":"500","label":"Moyenne (500)"},{"value":"600","label":"Semi-grasse (600)"}],"default":"400"},
+    {"type":"range","id":"font_size_desktop","label":"Taille du texte PC","min":10,"max":24,"step":1,"default":14,"unit":"px"},
+    {"type":"range","id":"font_size_mobile","label":"Taille du texte mobile","min":9,"max":20,"step":1,"default":11,"unit":"px"},
+    {"type":"range","id":"line_height","label":"Interligne","min":1,"max":2,"step":0.1,"default":1.4},
+
+    {"type":"header","content":"Icônes"},
+    {"type":"range","id":"icon_size_desktop","label":"Taille des icônes PC","min":24,"max":80,"step":2,"default":42,"unit":"px"},
+    {"type":"range","id":"icon_size_mobile","label":"Taille des icônes mobile","min":20,"max":68,"step":2,"default":38,"unit":"px"},
+    {"type":"range","id":"icon_stroke","label":"Épaisseur des traits","min":1,"max":3,"step":0.2,"default":1.6},
+    {"type":"range","id":"icon_gap_desktop","label":"Distance icône / texte PC","min":0,"max":30,"step":2,"default":14,"unit":"px"},
+    {"type":"range","id":"icon_gap_mobile","label":"Distance icône / texte mobile","min":0,"max":24,"step":2,"default":8,"unit":"px"}
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Avantage",
+      "settings": [
+        {"type":"textarea","id":"text","label":"Texte affiché","default":"Avantage du produit"},
+        {"type":"select","id":"icon","label":"Icône","options":[
+          {"value":"fabric","label":"Losange TISSU"},
+          {"value":"legs","label":"Piétement / couleurs"},
+          {"value":"layers","label":"Couches / mousse"},
+          {"value":"swivel","label":"Rotation 360°"},
+          {"value":"users","label":"Personnes"},
+          {"value":"bolt","label":"Puissance / éclair"},
+          {"value":"grill","label":"Gril"},
+          {"value":"heart","label":"Cœur"},
+          {"value":"truck","label":"Livraison"},
+          {"value":"shield","label":"Garantie / bouclier"},
+          {"value":"check","label":"Validation"},
+          {"value":"sparkles","label":"Étoile"},
+          {"value":"none","label":"Aucune icône"}
+        ],"default":"check"},
+        {"type":"image_picker","id":"image","label":"Icône personnalisée (remplace l'icône choisie)","info":"PNG transparent ou image carrée."},
+        {"type":"color","id":"text_color","label":"Couleur spécifique du texte (facultatif)"},
+        {"type":"url","id":"link","label":"Lien facultatif"}
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Avantages avec icônes",
+      "blocks": [
+        {"type":"feature","settings":{"text":"Jusqu'à 8 personnes","icon":"users"}},
+        {"type":"feature","settings":{"text":"Puissance de 1 400 W","icon":"bolt"}},
+        {"type":"feature","settings":{"text":"Raclette et gril réunis","icon":"grill"}},
+        {"type":"feature","settings":{"text":"Un repas convivial à partager","icon":"heart"}}
+      ]
+    }
+  ]
+}
+{% endschema %}
