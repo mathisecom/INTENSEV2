@@ -94,7 +94,8 @@
           "type": "description",
           "settings": {
             "icon": "none",
-            "icon_width": 20,
+            "custom_icon": "shopify://shop_images/bricolage.png",
+            "icon_width": 18,
             "collapse_content": true
           }
         },
