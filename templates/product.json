@@ -143,6 +143,83 @@
         "input_text_color": ""
       }
     },
+    "avtagicons_x9Ua7F": {
+      "type": "avtagicons",
+      "blocks": {
+        "feature_PaNLta": {
+          "type": "feature",
+          "settings": {
+            "text": "Jusqu'à 8 personnes",
+            "icon": "users",
+            "text_color": "",
+            "link": ""
+          }
+        },
+        "feature_9k8qg9": {
+          "type": "feature",
+          "settings": {
+            "text": "Puissance de 1 400 W",
+            "icon": "bolt",
+            "text_color": "",
+            "link": ""
+          }
+        },
+        "feature_F39QN3": {
+          "type": "feature",
+          "settings": {
+            "text": "Raclette et gril réunis",
+            "icon": "grill",
+            "text_color": "",
+            "link": ""
+          }
+        },
+        "feature_PmHPqr": {
+          "type": "feature",
+          "settings": {
+            "text": "Un repas convivial à partager",
+            "icon": "heart",
+            "text_color": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "feature_PaNLta",
+        "feature_9k8qg9",
+        "feature_F39QN3",
+        "feature_PmHPqr"
+      ],
+      "name": "Avantages avec icônes",
+      "settings": {
+        "max_width": 1640,
+        "desktop_columns": "4",
+        "mobile_columns": "2",
+        "desktop_height": 200,
+        "mobile_height": 125,
+        "desktop_gap": 1,
+        "mobile_gap": 10,
+        "side_padding_desktop": 16,
+        "side_padding_mobile": 10,
+        "padding_top": 0,
+        "padding_bottom": 36,
+        "section_background": "#FDFDF4",
+        "card_background": "#FDFDF4",
+        "border_color": "#EEEEEE",
+        "text_color": "#272D34",
+        "icon_color": "#16191C",
+        "corner_radius": 0,
+        "font_family": "manrope",
+        "font_weight": "400",
+        "font_size_desktop": 14,
+        "font_size_mobile": 11,
+        "line_height": 1.4,
+        "icon_size_desktop": 42,
+        "icon_size_mobile": 38,
+        "icon_stroke": 1.6,
+        "icon_gap_desktop": 14,
+        "icon_gap_mobile": 8
+      }
+    },
     "related-products": {
       "type": "related-products",
       "disabled": true,
@@ -169,6 +246,7 @@
   },
   "order": [
     "main",
+    "avtagicons_x9Ua7F",
     "related-products"
   ]
 }
