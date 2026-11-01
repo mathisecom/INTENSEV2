@@ -102,6 +102,7 @@
           "type": "collapsible_text",
           "settings": {
             "icon": "none",
+            "custom_icon": "shopify://shop_images/livraison-rapide_2.png",
             "icon_width": 20,
             "title": "Livraison & Retours",
             "content": "<p><strong>Livraison offerte</strong> en France métropolitaine.&nbsp;</p><p><strong>14 jours</strong> pour changer d’avis à réception, dans les conditions de notre page dédiée.</p>",
