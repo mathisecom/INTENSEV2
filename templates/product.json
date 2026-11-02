@@ -203,11 +203,11 @@
         "side_padding_mobile": 10,
         "padding_top": 0,
         "padding_bottom": 36,
-        "section_background": "#FDFDF4",
-        "card_background": "#FDFDF4",
-        "border_color": "#EEEEEE",
-        "text_color": "#272D34",
-        "icon_color": "#16191C",
+        "section_background": "#fdfdf4",
+        "card_background": "#fdfdf4",
+        "border_color": "#eeeeee",
+        "text_color": "#272d34",
+        "icon_color": "#16191c",
         "corner_radius": 0,
         "font_family": "manrope",
         "font_weight": "400",
@@ -219,6 +219,76 @@
         "icon_stroke": 1.6,
         "icon_gap_desktop": 14,
         "icon_gap_mobile": 8
+      }
+    },
+    "media_with_text_4Qax7a": {
+      "type": "media-with-text",
+      "blocks": {
+        "image_UrpWwx": {
+          "type": "image",
+          "settings": {
+            "media_width": 45,
+            "media_position": "start",
+            "text_position": "place-self-center text-center",
+            "icon": "none",
+            "icon_width": 48,
+            "subheading": "",
+            "title": "Heading",
+            "content": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
+            "link_text": "Obtenir Maintenant",
+            "link_url": "",
+            "background": "#FDFDF4",
+            "background_gradient": "",
+            "text_color": "#000000",
+            "text_gradient": "",
+            "button_background": "",
+            "button_text_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_UrpWwx"
+      ],
+      "name": "Media with text",
+      "settings": {
+        "full_width": true,
+        "alternate_media_position": false,
+        "spacing": "none"
+      }
+    },
+    "media_with_text_86BrKX": {
+      "type": "media-with-text",
+      "blocks": {
+        "image_LFrCLr": {
+          "type": "image",
+          "settings": {
+            "media_width": 45,
+            "media_position": "end",
+            "text_position": "place-self-center text-center",
+            "icon": "none",
+            "icon_width": 48,
+            "subheading": "",
+            "title": "Heading",
+            "content": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
+            "link_text": "Acheter Maintenant",
+            "link_url": "",
+            "background": "#FDFDF4",
+            "background_gradient": "",
+            "text_color": "#000000",
+            "text_gradient": "",
+            "button_background": "",
+            "button_text_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_LFrCLr"
+      ],
+      "name": "Media with text",
+      "settings": {
+        "full_width": true,
+        "alternate_media_position": false,
+        "spacing": "none"
       }
     },
     "rich_text_qFxWkz": {
@@ -341,6 +411,8 @@
   "order": [
     "main",
     "avtagicons_x9Ua7F",
+    "media_with_text_4Qax7a",
+    "media_with_text_86BrKX",
     "rich_text_qFxWkz",
     "testimonials_HaBNHf",
     "related-products"
