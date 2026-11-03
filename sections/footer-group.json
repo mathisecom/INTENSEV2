@@ -23,8 +23,8 @@
             "icon_background_type": "none",
             "icon_background": "",
             "icon_color": "",
-            "title": "Fast Shipping",
-            "content": "<p>We ship our orders within 24–48 business hours.</p>"
+            "title": "Livraison Offerte",
+            "content": ""
           }
         },
         "customer-support": {
@@ -36,8 +36,8 @@
             "icon_background_type": "none",
             "icon_background": "",
             "icon_color": "",
-            "title": "Customer Service",
-            "content": "<p>For any questions, you can contact us at any time.</p>"
+            "title": "Service Client 24/7",
+            "content": ""
           }
         },
         "discount": {
@@ -49,8 +49,8 @@
             "icon_background_type": "none",
             "icon_background": "",
             "icon_color": "",
-            "title": "Secure Payments",
-            "content": "<p>Payments on our site are encrypted and protected with 3D Secure.</p>"
+            "title": "Paiement Sécurisés",
+            "content": ""
           }
         }
       },
@@ -59,7 +59,6 @@
         "customer-support",
         "discount"
       ],
-      "disabled": true,
       "settings": {
         "full_width": true,
         "stack_on_mobile": false,
@@ -67,9 +66,9 @@
         "heading_tag": "h6",
         "text_alignment": "center",
         "icon_spacing": "small",
-        "background": "#fff0f2",
+        "background": "#F8F8ED",
         "background_gradient": "",
-        "text_color": "#890d20"
+        "text_color": "#000000"
       }
     },
     "footer": {
