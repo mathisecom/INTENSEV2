@@ -1,0 +1,293 @@
+
+{% comment %}
+  BARRE D'ANNONCE - LIVRAISON & RETOURS
+  Responsive PC et mobile
+{% endcomment %}
+
+<section
+  id="fp-announcement-{{ section.id }}"
+  class="fp-announcement"
+  style="
+    --fp-bg: {{ section.settings.background_color }};
+    --fp-text: {{ section.settings.text_color }};
+    --fp-divider: {{ section.settings.divider_color }};
+    --fp-font-desktop: {{ section.settings.font_size_desktop }}px;
+    --fp-font-mobile: {{ section.settings.font_size_mobile }}px;
+    --fp-letter-spacing: {{ section.settings.letter_spacing }}px;
+    --fp-icon-size: {{ section.settings.icon_size }}px;
+  "
+  aria-label="Informations livraison et retours"
+>
+  <div class="fp-announcement__inner">
+
+    {% for block in section.blocks %}
+      <div class="fp-announcement__item" {{ block.shopify_attributes }}>
+
+        {% if block.settings.icon != 'none' %}
+          <span class="fp-announcement__icon" aria-hidden="true">
+
+            {% case block.settings.icon %}
+
+              {% when 'package' %}
+                <svg viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="1.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2 3 6.5v11L12 22l9-4.5v-11L12 2Z"/>
+                  <path d="m3 6.5 9 4.5 9-4.5M12 11v11M7.5 4.25l9 4.5"/>
+                </svg>
+
+              {% when 'return' %}
+                <svg viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="1.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 11a9 9 0 1 1 2.3 6"/>
+                  <path d="M3 4v7h7"/>
+                  <path d="M12 7v5l3 2"/>
+                </svg>
+
+              {% when 'check' %}
+                <svg viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="1.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="9"/>
+                  <path d="m8 12 2.7 2.7L16 9"/>
+                </svg>
+
+            {% endcase %}
+
+          </span>
+        {% endif %}
+
+        <span class="fp-announcement__text">
+          {{ block.settings.text | escape }}
+        </span>
+
+      </div>
+    {% endfor %}
+
+  </div>
+</section>
+
+<style>
+  #fp-announcement-{{ section.id }} {
+    width: 100%;
+    background: var(--fp-bg);
+    color: var(--fp-text);
+  }
+
+  #fp-announcement-{{ section.id }} .fp-announcement__inner {
+    max-width: 1440px;
+    min-height: 52px;
+    margin: 0 auto;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+  }
+
+  #fp-announcement-{{ section.id }} .fp-announcement__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 11px;
+    padding: 0 36px;
+    min-width: 0;
+  }
+
+  #fp-announcement-{{ section.id }} .fp-announcement__item + .fp-announcement__item {
+    border-left: 1px solid var(--fp-divider);
+  }
+
+  #fp-announcement-{{ section.id }} .fp-announcement__icon {
+    width: var(--fp-icon-size);
+    height: var(--fp-icon-size);
+    flex: 0 0 var(--fp-icon-size);
+    display: inline-flex;
+  }
+
+  #fp-announcement-{{ section.id }} .fp-announcement__icon svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  #fp-announcement-{{ section.id }} .fp-announcement__text {
+    font-family: inherit;
+    font-size: var(--fp-font-desktop);
+    font-weight: 400;
+    line-height: 1.35;
+    letter-spacing: var(--fp-letter-spacing);
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  /* VERSION MOBILE */
+  @media screen and (max-width: 749px) {
+
+    #fp-announcement-{{ section.id }} .fp-announcement__inner {
+      min-height: 0;
+      padding: 10px 12px;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    #fp-announcement-{{ section.id }} .fp-announcement__item {
+      width: 100%;
+      padding: 0;
+      gap: 8px;
+    }
+
+    #fp-announcement-{{ section.id }} .fp-announcement__item + .fp-announcement__item {
+      border-left: 0;
+    }
+
+    #fp-announcement-{{ section.id }} .fp-announcement__text {
+      font-size: var(--fp-font-mobile);
+      letter-spacing: min(var(--fp-letter-spacing), 1.7px);
+    }
+
+    #fp-announcement-{{ section.id }} .fp-announcement__icon {
+      width: 17px;
+      height: 17px;
+      flex-basis: 17px;
+    }
+
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Barre livraison & retours",
+  "tag": "section",
+  "class": "section-barre-annonce-fp",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Couleurs"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Couleur de fond",
+      "default": "#EEECE9"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Couleur du texte et des icônes",
+      "default": "#28323C"
+    },
+    {
+      "type": "color",
+      "id": "divider_color",
+      "label": "Couleur du séparateur",
+      "default": "#D6D3CF"
+    },
+    {
+      "type": "header",
+      "content": "Typographie"
+    },
+    {
+      "type": "range",
+      "id": "font_size_desktop",
+      "label": "Taille texte ordinateur",
+      "min": 10,
+      "max": 22,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "font_size_mobile",
+      "label": "Taille texte mobile",
+      "min": 9,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "default": 11
+    },
+    {
+      "type": "range",
+      "id": "letter_spacing",
+      "label": "Espacement des lettres",
+      "min": 0,
+      "max": 4,
+      "step": 0.5,
+      "unit": "px",
+      "default": 2
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "label": "Taille des icônes",
+      "min": 14,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "default": 21
+    }
+  ],
+  "blocks": [
+    {
+      "type": "message",
+      "name": "Message",
+      "limit": 2,
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Texte de l'annonce",
+          "default": "LIVRAISON OFFERTE EN FRANCE"
+        },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icône",
+          "options": [
+            {
+              "value": "package",
+              "label": "Colis"
+            },
+            {
+              "value": "return",
+              "label": "Retour / 14 jours"
+            },
+            {
+              "value": "check",
+              "label": "Validation"
+            },
+            {
+              "value": "none",
+              "label": "Aucune"
+            }
+          ],
+          "default": "package"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Barre livraison & retours",
+      "blocks": [
+        {
+          "type": "message",
+          "settings": {
+            "text": "LIVRAISON OFFERTE",
+            "icon": "package"
+          }
+        },
+        {
+          "type": "message",
+          "settings": {
+            "text": "14 JOURS POUR CHANGER D'AVIS",
+            "icon": "return"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
