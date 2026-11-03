@@ -108,6 +108,17 @@
             "content": "<p><strong>Livraison offerte</strong> en France métropolitaine.&nbsp;</p><p><strong>14 jours</strong> pour changer d’avis à réception, dans les conditions de notre page dédiée.</p>",
             "page": ""
           }
+        },
+        "collapsible_text_XHGrqA": {
+          "type": "collapsible_text",
+          "settings": {
+            "icon": "none",
+            "custom_icon": "shopify://shop_images/bricolage.png",
+            "icon_width": 20,
+            "title": "Caractéristiques",
+            "content": "<ul><li>Capacité annoncée : 8 personnes.</li><li>Puissance annoncée : 1 400 W.</li><li>Fonction gril de table.</li><li>Plaque antiadhésive ; finition noire et acier inoxydable mentionnée.</li></ul>",
+            "page": ""
+          }
         }
       },
       "block_order": [
@@ -124,7 +135,8 @@
         "buy_buttons",
         "liquid_dbMNPT",
         "description",
-        "collapsible_text_3yKADF"
+        "collapsible_text_3yKADF",
+        "collapsible_text_XHGrqA"
       ],
       "settings": {
         "full_width": true,
@@ -237,7 +249,7 @@
             "content": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
             "link_text": "Obtenir Maintenant",
             "link_url": "",
-            "background": "#FDFDF4",
+            "background": "#fdfdf4",
             "background_gradient": "",
             "text_color": "#000000",
             "text_gradient": "",
@@ -310,11 +322,11 @@
         "speed_mobile": 50,
         "repetitions": 5,
         "pause_on_hover": true,
-        "background_color": "#4F1002",
-        "text_color": "#F7B7A8",
-        "separator_color": "#F7B7A8",
+        "background_color": "#4f1002",
+        "text_color": "#f7b7a8",
+        "separator_color": "#f7b7a8",
         "show_border": false,
-        "border_color": "#7A352B",
+        "border_color": "#7a352b",
         "font_choice": "body",
         "font_size_desktop": 12,
         "font_size_mobile": 10,
@@ -348,7 +360,7 @@
             "content": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
             "link_text": "Acheter Maintenant",
             "link_url": "",
-            "background": "#FDFDF4",
+            "background": "#fdfdf4",
             "background_gradient": "",
             "text_color": "#000000",
             "text_gradient": "",
