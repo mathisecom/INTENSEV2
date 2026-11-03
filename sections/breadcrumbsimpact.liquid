@@ -1,0 +1,219 @@
+
+{% comment %}
+  BREADCRUMBS IMPACT
+  Fil d'Ariane responsive et personnalisable
+{% endcomment %}
+
+{% liquid
+  assign breadcrumb_collection = collection
+
+  if request.page_type == 'product'
+    if breadcrumb_collection == blank
+      for item_collection in product.collections
+        unless item_collection.handle == 'all' or item_collection.handle == 'frontpage'
+          assign breadcrumb_collection = item_collection
+          break
+        endunless
+      endfor
+    endif
+  endif
+%}
+
+{% if request.page_type == 'product' or request.page_type == 'collection' or request.page_type == 'page' or request.page_type == 'blog' or request.page_type == 'article' %}
+
+<nav
+  class="impact-breadcrumbs impact-breadcrumbs--{{ section.id }}"
+  aria-label="Fil d'Ariane"
+>
+  <div class="impact-breadcrumbs__inner">
+
+    <a href="{{ routes.root_url }}" class="impact-breadcrumbs__link">
+      Accueil
+    </a>
+
+    {% case request.page_type %}
+
+      {% when 'product' %}
+
+        {% if breadcrumb_collection != blank %}
+          <span class="impact-breadcrumbs__separator" aria-hidden="true">›</span>
+          <a href="{{ breadcrumb_collection.url }}" class="impact-breadcrumbs__link">
+            {{ breadcrumb_collection.title | escape }}
+          </a>
+        {% endif %}
+
+        <span class="impact-breadcrumbs__separator" aria-hidden="true">›</span>
+        <span class="impact-breadcrumbs__current" aria-current="page">
+          {{ product.title | escape }}
+        </span>
+
+      {% when 'collection' %}
+
+        <span class="impact-breadcrumbs__separator" aria-hidden="true">›</span>
+        <span class="impact-breadcrumbs__current" aria-current="page">
+          {{ collection.title | escape }}
+        </span>
+
+      {% when 'page' %}
+
+        <span class="impact-breadcrumbs__separator" aria-hidden="true">›</span>
+        <span class="impact-breadcrumbs__current" aria-current="page">
+          {{ page.title | escape }}
+        </span>
+
+      {% when 'blog' %}
+
+        <span class="impact-breadcrumbs__separator" aria-hidden="true">›</span>
+        <span class="impact-breadcrumbs__current" aria-current="page">
+          {{ blog.title | escape }}
+        </span>
+
+      {% when 'article' %}
+
+        <span class="impact-breadcrumbs__separator" aria-hidden="true">›</span>
+        <a href="{{ blog.url }}" class="impact-breadcrumbs__link">
+          {{ blog.title | escape }}
+        </a>
+        <span class="impact-breadcrumbs__separator" aria-hidden="true">›</span>
+        <span class="impact-breadcrumbs__current" aria-current="page">
+          {{ article.title | escape }}
+        </span>
+
+    {% endcase %}
+
+  </div>
+</nav>
+
+{% endif %}
+
+<style>
+  .impact-breadcrumbs--{{ section.id }} {
+    width: 100%;
+    background: {{ section.settings.bg_color }};
+    font-family: inherit;
+  }
+
+  .impact-breadcrumbs--{{ section.id }} .impact-breadcrumbs__inner {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding:
+      {{ section.settings.padding_vertical }}px
+      24px;
+
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 9px;
+
+    font-family: inherit;
+    font-size: {{ section.settings.font_size }}px;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+
+  .impact-breadcrumbs--{{ section.id }} .impact-breadcrumbs__link {
+    color: {{ section.settings.link_color }};
+    text-decoration: none;
+    transition: opacity .2s ease;
+  }
+
+  .impact-breadcrumbs--{{ section.id }} .impact-breadcrumbs__link:hover {
+    opacity: .65;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .impact-breadcrumbs--{{ section.id }} .impact-breadcrumbs__separator {
+    color: {{ section.settings.link_color }};
+    opacity: .5;
+    font-size: 16px;
+    line-height: 1;
+  }
+
+  .impact-breadcrumbs--{{ section.id }} .impact-breadcrumbs__current {
+    color: {{ section.settings.current_color }};
+    font-weight: 500;
+    overflow-wrap: anywhere;
+  }
+
+  @media screen and (max-width: 749px) {
+    .impact-breadcrumbs--{{ section.id }} .impact-breadcrumbs__inner {
+      padding: 12px 16px;
+      font-size: {{ section.settings.mobile_font_size }}px;
+      gap: 6px;
+    }
+
+    .impact-breadcrumbs--{{ section.id }} .impact-breadcrumbs__separator {
+      font-size: 14px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Breadcrumbs Impact",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Couleurs"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Couleur de fond",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "link_color",
+      "label": "Couleur des liens",
+      "default": "#777777"
+    },
+    {
+      "type": "color",
+      "id": "current_color",
+      "label": "Couleur de la page actuelle",
+      "default": "#222222"
+    },
+    {
+      "type": "header",
+      "content": "Typographie"
+    },
+    {
+      "type": "range",
+      "id": "font_size",
+      "label": "Taille ordinateur",
+      "min": 10,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 13
+    },
+    {
+      "type": "range",
+      "id": "mobile_font_size",
+      "label": "Taille mobile",
+      "min": 10,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "default": 11
+    },
+    {
+      "type": "range",
+      "id": "padding_vertical",
+      "label": "Espacement vertical",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 16
+    }
+  ],
+  "presets": [
+    {
+      "name": "Breadcrumbs Impact"
+    }
+  ]
+}
+{% endschema %}
