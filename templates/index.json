@@ -171,6 +171,44 @@
         "padding_bottom_mobile": 30
       }
     },
+    "featured_collection_cGUDkh": {
+      "type": "featured-collection",
+      "name": "Featured collection",
+      "settings": {
+        "collection": "",
+        "products": [
+          "lot-2-chaises-scandinaves-beiges-pieds-bois",
+          "lot-2-chaises-blanches-pieds-dores",
+          "chaises-salle-manger-velours-cotele",
+          "chaises-salle-manger-beiges-pieds-noirs",
+          "table-extensible-120-160-cm-pieds-croises-noirs",
+          "table-extensible-effet-marbre-noir-110-140-cm",
+          "table-extensible-rangement-150-190-cm",
+          "table-manger-extensible-blanche-99-159-cm",
+          "table-manger-extensible-120-160-cm-6-personnes",
+          "table-ronde-extensible-rangement-120-160-cm",
+          "table-extensible-effet-noyer-140-220-cm"
+        ],
+        "full_width": true,
+        "stack_products": false,
+        "show_progress_bar": true,
+        "products_count": 6,
+        "products_per_row_mobile": "2",
+        "products_per_row_desktop": 5,
+        "subheading": "",
+        "title": "Nouveautés",
+        "content": "",
+        "link_url": "",
+        "link_text": "Découvrir",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "product_card_background": "",
+        "product_card_text_color": ""
+      }
+    },
     "edito_Ei9kFU": {
       "type": "edito",
       "disabled": true,
@@ -280,6 +318,7 @@
         "subheading_BBKi7x",
         "heading_N4b4Dh"
       ],
+      "disabled": true,
       "name": "Rich text",
       "settings": {
         "full_width": true,
@@ -332,6 +371,7 @@
         "testimonial_UL7gKR",
         "testimonial_RWttJc"
       ],
+      "disabled": true,
       "name": "Testimonials",
       "settings": {
         "full_width": true,
@@ -456,6 +496,7 @@
     "bandeaudefilant_qEPbyN",
     "featured_collection_YQfNN9",
     "universcuisine_TYG34M",
+    "featured_collection_cGUDkh",
     "edito_Ei9kFU",
     "rich_text_pPD7kk",
     "testimonials_NpfAtT",
