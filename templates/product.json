@@ -9,6 +9,82 @@
  */
 {
   "sections": {
+    "bandeaudefilant_Hxx4hh": {
+      "type": "bandeaudefilant",
+      "blocks": {
+        "message_B9k3m3": {
+          "type": "message",
+          "settings": {
+            "text": "DURABLE",
+            "link": ""
+          }
+        },
+        "message_N98GNL": {
+          "type": "message",
+          "settings": {
+            "text": "SANS PFAS*",
+            "link": ""
+          }
+        },
+        "message_fifjLb": {
+          "type": "message",
+          "settings": {
+            "text": "TOUS FEUX",
+            "link": ""
+          }
+        },
+        "message_NLE33Q": {
+          "type": "message",
+          "settings": {
+            "text": "ULTRA LÉGER",
+            "link": ""
+          }
+        },
+        "message_ehbXKh": {
+          "type": "message",
+          "settings": {
+            "text": "ANTIADHÉRENT",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "message_B9k3m3",
+        "message_N98GNL",
+        "message_fifjLb",
+        "message_NLE33Q",
+        "message_ehbXKh"
+      ],
+      "name": "Bandeau défilant infini",
+      "settings": {
+        "autoplay": true,
+        "direction": "left",
+        "speed_desktop": 38,
+        "speed_mobile": 28,
+        "repetitions": 5,
+        "pause_on_hover": true,
+        "background_color": "#4F1002",
+        "text_color": "#F7B7A8",
+        "separator_color": "#F7B7A8",
+        "show_border": false,
+        "border_color": "#7A352B",
+        "font_choice": "body",
+        "font_size_desktop": 12,
+        "font_size_mobile": 10,
+        "font_weight": "700",
+        "uppercase": true,
+        "letter_spacing": 1,
+        "padding_desktop": 9,
+        "padding_mobile": 10,
+        "item_gap_desktop": 20,
+        "item_gap_mobile": 14,
+        "separator_gap": 14,
+        "separator_type": "dot",
+        "custom_separator": "•",
+        "separator_size": 11,
+        "accessible_title": "Les avantages de nos produits"
+      }
+    },
     "main": {
       "type": "main-product",
       "blocks": {
@@ -464,6 +540,7 @@
     "main",
     "avtagicons_x9Ua7F",
     "media_with_text_4Qax7a",
+    "bandeaudefilant_Hxx4hh",
     "media_with_text_86BrKX",
     "rich_text_qFxWkz",
     "testimonials_HaBNHf",
