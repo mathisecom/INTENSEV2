@@ -1,0 +1,883 @@
+
+{% liquid
+  assign main_image = section.settings.desktop_image
+  if main_image == blank
+    assign main_image = section.settings.mobile_image
+  endif
+  assign image_alt = main_image.alt | default: section.settings.title
+%}
+
+<section
+  id="ors-mission-{{ section.id }}"
+  class="ors-mission{% if section.settings.mobile_order == 'text_first' %} ors-mission--text-first{% endif %}{% unless section.settings.show_image_mobile %} ors-mission--hide-mobile-image{% endunless %}"
+  style="
+    --ors-page-bg: {{ section.settings.page_bg }};
+    --ors-panel-bg: {{ section.settings.panel_bg }};
+    --ors-text-color: {{ section.settings.text_color }};
+    --ors-frame-color: {{ section.settings.frame_color }};
+    --ors-button-bg: {{ section.settings.button_bg }};
+    --ors-button-text: {{ section.settings.button_text }};
+    --ors-button-border: {{ section.settings.button_border }};
+    --ors-button-hover-bg: {{ section.settings.button_hover_bg }};
+    --ors-button-hover-text: {{ section.settings.button_hover_text }};
+    --ors-desktop-height: {{ section.settings.desktop_height }}px;
+    --ors-mobile-image-height: {{ section.settings.mobile_image_height }}px;
+    --ors-mobile-panel-height: {{ section.settings.mobile_panel_height }}px;
+    --ors-image-width: {{ section.settings.image_width }}%;
+    --ors-outer-x: {{ section.settings.outer_spacing }}px;
+    --ors-outer-y: {{ section.settings.vertical_spacing }}px;
+    --ors-radius: {{ section.settings.radius }}px;
+    --ors-frame-inset: {{ section.settings.frame_inset }}px;
+    --ors-frame-size: {{ section.settings.frame_size }}px;
+    --ors-frame-thickness: {{ section.settings.frame_thickness }}px;
+    --ors-frame-radius: {{ section.settings.frame_radius }}px;
+    --ors-panel-padding: {{ section.settings.panel_padding }}px;
+    --ors-mobile-padding: {{ section.settings.mobile_padding }}px;
+    --ors-heading-size: {{ section.settings.heading_size }}px;
+    --ors-mobile-heading-size: {{ section.settings.mobile_heading_size }}px;
+    --ors-body-size: {{ section.settings.body_size }}px;
+    --ors-mobile-body-size: {{ section.settings.mobile_body_size }}px;
+    --ors-eyebrow-size: {{ section.settings.eyebrow_size }}px;
+    --ors-heading-weight: {{ section.settings.heading_weight }};
+    --ors-button-radius: {{ section.settings.button_radius }}px;
+    --ors-button-x: {{ section.settings.button_padding_x }}px;
+    --ors-button-y: {{ section.settings.button_padding_y }}px;
+    --ors-button-font-size: {{ section.settings.button_font_size }}px;
+    --ors-text-align: {{ section.settings.text_alignment }};
+  "
+>
+  <div class="ors-mission__wrap">
+    <div class="ors-mission__grid">
+
+      <!-- IMAGE -->
+      <div class="ors-mission__media">
+        {% if main_image != blank %}
+          <picture>
+            {% if section.settings.mobile_image != blank %}
+              <source
+                media="(max-width: 749px)"
+                srcset="
+                  {{ section.settings.mobile_image | image_url: width: 400 }} 400w,
+                  {{ section.settings.mobile_image | image_url: width: 750 }} 750w,
+                  {{ section.settings.mobile_image | image_url: width: 1100 }} 1100w
+                "
+                sizes="100vw"
+              >
+            {% endif %}
+
+            {{
+              main_image
+              | image_url: width: 2000
+              | image_tag:
+                widths: '375, 550, 750, 990, 1200, 1500, 1800, 2000',
+                sizes: '(min-width: 750px) 50vw, 100vw',
+                loading: 'lazy',
+                class: 'ors-mission__image',
+                alt: image_alt
+            }}
+          </picture>
+        {% else %}
+          {{ 'lifestyle-1' | placeholder_svg_tag: 'ors-mission__placeholder' }}
+        {% endif %}
+      </div>
+
+      <!-- PANNEAU -->
+      <div class="ors-mission__panel">
+
+        {% if section.settings.show_frame %}
+          <div class="ors-mission__frame" aria-hidden="true">
+            <span class="ors-mission__corner ors-mission__corner--tl"></span>
+            <span class="ors-mission__corner ors-mission__corner--tr"></span>
+            <span class="ors-mission__corner ors-mission__corner--bl"></span>
+            <span class="ors-mission__corner ors-mission__corner--br"></span>
+          </div>
+        {% endif %}
+
+        <div class="ors-mission__content">
+
+          {% if section.settings.eyebrow != blank %}
+            <p class="ors-mission__eyebrow">
+              {{ section.settings.eyebrow | escape }}
+            </p>
+          {% endif %}
+
+          {% if section.settings.title != blank %}
+            <h2 class="ors-mission__heading">
+              {{ section.settings.title | escape | newline_to_br }}
+            </h2>
+          {% endif %}
+
+          {% if section.settings.description != blank %}
+            <div class="ors-mission__description rte">
+              {{ section.settings.description }}
+            </div>
+          {% endif %}
+
+          {% if section.settings.highlight != blank %}
+            <p class="ors-mission__highlight">
+              {{ section.settings.highlight | escape }}
+            </p>
+          {% endif %}
+
+          {% if section.settings.button_label != blank %}
+            <a
+              class="ors-mission__button"
+              href="{{ section.settings.button_link | default: routes.root_url }}"
+            >
+              {{ section.settings.button_label | escape }}
+            </a>
+          {% endif %}
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  #ors-mission-{{ section.id }} {
+    box-sizing: border-box;
+    padding: var(--ors-outer-y) var(--ors-outer-x);
+    background: var(--ors-page-bg);
+  }
+
+  #ors-mission-{{ section.id }} *,
+  #ors-mission-{{ section.id }} *::before,
+  #ors-mission-{{ section.id }} *::after {
+    box-sizing: border-box;
+  }
+
+  #ors-mission-{{ section.id }} .ors-mission__wrap {
+    max-width: {{ section.settings.max_width }}px;
+    margin: 0 auto;
+  }
+
+  #ors-mission-{{ section.id }} .ors-mission__grid {
+    display: grid;
+    grid-template-columns: var(--ors-image-width) minmax(0, 1fr);
+    min-height: var(--ors-desktop-height);
+    border-radius: var(--ors-radius);
+    overflow: hidden;
+  }
+
+  /* IMAGE */
+
+  #ors-mission-{{ section.id }} .ors-mission__media {
+    position: relative;
+    min-height: var(--ors-desktop-height);
+    overflow: hidden;
+    background: #e7e5e1;
+  }
+
+  #ors-mission-{{ section.id }} .ors-mission__media picture,
+  #ors-mission-{{ section.id }} .ors-mission__image,
+  #ors-mission-{{ section.id }} .ors-mission__placeholder {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0;
+  }
+
+  #ors-mission-{{ section.id }} .ors-mission__image {
+    object-fit: cover;
+    object-position: {{ section.settings.image_position }};
+  }
+
+  #ors-mission-{{ section.id }} .ors-mission__placeholder {
+    object-fit: cover;
+  }
+
+  /* PANNEAU COLORE */
+
+  #ors-mission-{{ section.id }} .ors-mission__panel {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+    min-height: var(--ors-desktop-height);
+    padding: calc(var(--ors-frame-inset) + 30px) var(--ors-panel-padding);
+    background: var(--ors-panel-bg);
+    color: var(--ors-text-color);
+    text-align: var(--ors-text-align);
+  }
+
+  /* CADRE DECORATIF */
+
+  #ors-mission-{{ section.id }} .ors-mission__frame {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  #ors-mission-{{ section.id }} .ors-mission__corner {
+    position: absolute;
+    width: var(--ors-frame-size);
+    height: var(--ors-frame-size);
+    border-color: var(--ors-frame-color);
+    border-style: solid;
+    border-width: 0;
+  }
+
+  #ors-mission-{{ section.id }} .ors-mission__corner--tl {
+    left: var(--ors-frame-inset);
+    top: var(--ors-frame-inset);
+    border-top-width: var(--ors-frame-thickness);
+    border-left-width: var(--ors-frame-thickness);
+    border-top-left-radius: var(--ors-frame-radius);
+  }
+
+  #ors-mission-{{ section.id }} .ors-mission__corner--tr {
+    right: var(--ors-frame-inset);
+    top: var(--ors-frame-inset);
+    border-top-width: var(--ors-frame-thickness);
+    border-right-width: var(--ors-frame-thickness);
+    border-top-right-radius: var(--ors-frame-radius);
+  }
+
+  #ors-mission-{{ section.id }} .ors-mission__corner--bl {
+    left: var(--ors-frame-inset);
+    bottom: var(--ors-frame-inset);
+    border-bottom-width: var(--ors-frame-thickness);
+    border-left-width: var(--ors-frame-thickness);
+    border-bottom-left-radius: var(--ors-frame-radius);
+  }
+
+  #ors-mission-{{ section.id }} .ors-mission__corner--br {
+    right: var(--ors-frame-inset);
+    bottom: var(--ors-frame-inset);
+    border-bottom-width: var(--ors-frame-thickness);
+    border-right-width: var(--ors-frame-thickness);
+    border-bottom-right-radius: var(--ors-frame-radius);
+  }
+
+  /* CONTENU */
+
+  #ors-mission-{{ section.id }} .ors-mission__content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: {{ section.settings.content_max_width }}px;
+  }
+
+  #ors-mission-{{ section.id }} .ors-mission__eyebrow {
+    margin: 0 0 20px;
+    font-size: var(--ors-eyebrow-size);
+    font-weight: 400;
+    line-height: 1.35;
+    text-transform: none;
+    color: inherit;
+  }
+
+  #ors-mission-{{ section.id }} .ors-mission__heading {
+    margin: 0 0 24px;
+    font-size: var(--ors-heading-size);
+    line-height: 0.98;
+    font-weight: var(--ors-heading-weight);
+    letter-spacing: -0.045em;
+    text-transform: none;
+    color: inherit;
+    overflow-wrap: anywhere;
+  }
+
+  #ors-mission-{{ section.id }} .ors-mission__description,
+  #ors-mission-{{ section.id }} .ors-mission__highlight {
+    font-size: var(--ors-body-size);
+    line-height: 1.32;
+    font-weight: 400;
+    color: inherit;
+  }
+
+  #ors-mission-{{ section.id }} .ors-mission__description p {
+    margin: 0 0 10px;
+  }
+
+  #ors-mission-{{ section.id }} .ors-mission__description p:last-child {
+    margin-bottom: 0;
+  }
+
+  #ors-mission-{{ section.id }} .ors-mission__description a {
+    color: inherit;
+    text-decoration: underline;
+  }
+
+  #ors-mission-{{ section.id }} .ors-mission__highlight {
+    margin: 2px 0 0;
+    font-weight: 700;
+  }
+
+  /* BOUTON */
+
+  #ors-mission-{{ section.id }} .ors-mission__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    min-height: 0;
+    margin-top: 24px;
+    padding: var(--ors-button-y) var(--ors-button-x);
+    border: 1px solid var(--ors-button-border);
+    border-radius: var(--ors-button-radius);
+    background: var(--ors-button-bg);
+    color: var(--ors-button-text);
+    font-size: var(--ors-button-font-size);
+    font-weight: 400;
+    line-height: 1.1;
+    text-decoration: none;
+    text-transform: none;
+    letter-spacing: 0;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  #ors-mission-{{ section.id }} .ors-mission__button:hover,
+  #ors-mission-{{ section.id }} .ors-mission__button:focus-visible {
+    background: var(--ors-button-hover-bg);
+    color: var(--ors-button-hover-text);
+  }
+
+  #ors-mission-{{ section.id }} .ors-mission__button:focus-visible {
+    outline: 2px solid var(--ors-text-color);
+    outline-offset: 3px;
+  }
+
+  /* VERSION MOBILE */
+
+  @media screen and (max-width: 749px) {
+
+    #ors-mission-{{ section.id }} {
+      padding: {{ section.settings.mobile_outer_y }}px {{ section.settings.mobile_outer_x }}px;
+    }
+
+    #ors-mission-{{ section.id }} .ors-mission__grid {
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+    }
+
+    #ors-mission-{{ section.id }} .ors-mission__media {
+      height: var(--ors-mobile-image-height);
+      min-height: 0;
+      flex: 0 0 auto;
+    }
+
+    #ors-mission-{{ section.id }} .ors-mission__image {
+      object-position: {{ section.settings.mobile_image_position }};
+    }
+
+    #ors-mission-{{ section.id }} .ors-mission__panel {
+      min-height: var(--ors-mobile-panel-height);
+      padding: 72px var(--ors-mobile-padding);
+    }
+
+    #ors-mission-{{ section.id }} .ors-mission__corner {
+      width: min(75px, 18vw);
+      height: min(75px, 18vw);
+    }
+
+    #ors-mission-{{ section.id }} .ors-mission__corner--tl,
+    #ors-mission-{{ section.id }} .ors-mission__corner--tr {
+      top: 20px;
+    }
+
+    #ors-mission-{{ section.id }} .ors-mission__corner--bl,
+    #ors-mission-{{ section.id }} .ors-mission__corner--br {
+      bottom: 20px;
+    }
+
+    #ors-mission-{{ section.id }} .ors-mission__corner--tl,
+    #ors-mission-{{ section.id }} .ors-mission__corner--bl {
+      left: 20px;
+    }
+
+    #ors-mission-{{ section.id }} .ors-mission__corner--tr,
+    #ors-mission-{{ section.id }} .ors-mission__corner--br {
+      right: 20px;
+    }
+
+    #ors-mission-{{ section.id }} .ors-mission__eyebrow {
+      margin-bottom: 15px;
+      font-size: min(var(--ors-eyebrow-size), 16px);
+    }
+
+    #ors-mission-{{ section.id }} .ors-mission__heading {
+      margin-bottom: 20px;
+      font-size: var(--ors-mobile-heading-size);
+      line-height: 1.03;
+    }
+
+    #ors-mission-{{ section.id }} .ors-mission__description,
+    #ors-mission-{{ section.id }} .ors-mission__highlight {
+      font-size: var(--ors-mobile-body-size);
+      line-height: 1.45;
+    }
+
+    #ors-mission-{{ section.id }} .ors-mission__button {
+      margin-top: 22px;
+    }
+
+    #ors-mission-{{ section.id }}.ors-mission--text-first .ors-mission__panel {
+      order: 1;
+    }
+
+    #ors-mission-{{ section.id }}.ors-mission--text-first .ors-mission__media {
+      order: 2;
+    }
+
+    #ors-mission-{{ section.id }}.ors-mission--hide-mobile-image .ors-mission__media {
+      display: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #ors-mission-{{ section.id }} .ors-mission__button {
+      transition: none;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Orselyno - Notre mission",
+  "tag": "section",
+  "class": "section-orselyno-mission",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Images et mise en page"
+    },
+    {
+      "type": "image_picker",
+      "id": "desktop_image",
+      "label": "Image ordinateur"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Image mobile (facultative)"
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Cadrage image ordinateur",
+      "options": [
+        { "value": "center center", "label": "Centre" },
+        { "value": "center top", "label": "Haut" },
+        { "value": "center bottom", "label": "Bas" },
+        { "value": "left center", "label": "Gauche" },
+        { "value": "right center", "label": "Droite" }
+      ],
+      "default": "center center"
+    },
+    {
+      "type": "select",
+      "id": "mobile_image_position",
+      "label": "Cadrage image mobile",
+      "options": [
+        { "value": "center center", "label": "Centre" },
+        { "value": "center top", "label": "Haut" },
+        { "value": "center bottom", "label": "Bas" }
+      ],
+      "default": "center center"
+    },
+    {
+      "type": "range",
+      "id": "image_width",
+      "label": "Largeur image sur ordinateur (%)",
+      "min": 30,
+      "max": 70,
+      "step": 1,
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "desktop_height",
+      "label": "Hauteur minimum ordinateur (px)",
+      "min": 350,
+      "max": 900,
+      "step": 10,
+      "default": 720
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "label": "Largeur maximale de la section (px)",
+      "min": 1000,
+      "max": 2400,
+      "step": 50,
+      "default": 1900
+    },
+    {
+      "type": "range",
+      "id": "radius",
+      "label": "Arrondi des coins (px)",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "default": 22
+    },
+    {
+      "type": "range",
+      "id": "outer_spacing",
+      "label": "Marges latérales ordinateur (px)",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "vertical_spacing",
+      "label": "Marges haut/bas ordinateur (px)",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "panel_padding",
+      "label": "Espacement intérieur texte PC (px)",
+      "min": 20,
+      "max": 140,
+      "step": 2,
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "content_max_width",
+      "label": "Largeur maximale du texte (px)",
+      "min": 350,
+      "max": 900,
+      "step": 10,
+      "default": 690
+    },
+
+    {
+      "type": "header",
+      "content": "Version mobile"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_image_mobile",
+      "label": "Afficher l'image sur mobile",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "mobile_order",
+      "label": "Ordre sur mobile",
+      "options": [
+        { "value": "image_first", "label": "Image puis texte" },
+        { "value": "text_first", "label": "Texte puis image" }
+      ],
+      "default": "image_first"
+    },
+    {
+      "type": "range",
+      "id": "mobile_image_height",
+      "label": "Hauteur image mobile (px)",
+      "min": 180,
+      "max": 600,
+      "step": 10,
+      "default": 320
+    },
+    {
+      "type": "range",
+      "id": "mobile_panel_height",
+      "label": "Hauteur minimum panneau mobile (px)",
+      "min": 280,
+      "max": 800,
+      "step": 10,
+      "default": 420
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding",
+      "label": "Espacement intérieur mobile (px)",
+      "min": 16,
+      "max": 60,
+      "step": 2,
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "mobile_outer_x",
+      "label": "Marges latérales mobile (px)",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "mobile_outer_y",
+      "label": "Marges haut/bas mobile (px)",
+      "min": 0,
+      "max": 60,
+      "step": 2,
+      "default": 14
+    },
+
+    {
+      "type": "header",
+      "content": "Textes"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Petit texte au-dessus",
+      "default": "NOTRE MISSION"
+    },
+    {
+      "type": "textarea",
+      "id": "title",
+      "label": "Grand titre",
+      "default": "La cuisine avec style.\nSans compromis."
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Chez Orselyno, nous sélectionnons des essentiels pratiques et élégants pour la cuisine et la maison. Des objets pensés pour accompagner chaque moment du quotidien, simplement.</p>"
+    },
+    {
+      "type": "text",
+      "id": "highlight",
+      "label": "Phrase en gras",
+      "default": "Votre cuisine, votre style."
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Alignement des textes",
+      "options": [
+        { "value": "center", "label": "Centré" },
+        { "value": "left", "label": "À gauche" },
+        { "value": "right", "label": "À droite" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "range",
+      "id": "eyebrow_size",
+      "label": "Taille du petit texte (px)",
+      "min": 12,
+      "max": 26,
+      "step": 1,
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Taille du grand titre PC (px)",
+      "min": 40,
+      "max": 110,
+      "step": 2,
+      "default": 76
+    },
+    {
+      "type": "range",
+      "id": "mobile_heading_size",
+      "label": "Taille du grand titre mobile (px)",
+      "min": 24,
+      "max": 58,
+      "step": 2,
+      "default": 40
+    },
+    {
+      "type": "select",
+      "id": "heading_weight",
+      "label": "Épaisseur du grand titre",
+      "options": [
+        { "value": "400", "label": "Normal" },
+        { "value": "500", "label": "Moyen" },
+        { "value": "600", "label": "Semi-gras" },
+        { "value": "700", "label": "Gras" }
+      ],
+      "default": "400"
+    },
+    {
+      "type": "range",
+      "id": "body_size",
+      "label": "Taille description PC (px)",
+      "min": 12,
+      "max": 26,
+      "step": 1,
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "mobile_body_size",
+      "label": "Taille description mobile (px)",
+      "min": 12,
+      "max": 22,
+      "step": 1,
+      "default": 15
+    },
+
+    {
+      "type": "header",
+      "content": "Cadre décoratif"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_frame",
+      "label": "Afficher les quatre angles",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "frame_color",
+      "label": "Couleur du cadre",
+      "default": "#101010"
+    },
+    {
+      "type": "range",
+      "id": "frame_inset",
+      "label": "Distance du cadre aux bords PC (px)",
+      "min": 10,
+      "max": 90,
+      "step": 2,
+      "default": 42
+    },
+    {
+      "type": "range",
+      "id": "frame_size",
+      "label": "Longueur des angles PC (px)",
+      "min": 60,
+      "max": 220,
+      "step": 5,
+      "default": 125
+    },
+    {
+      "type": "range",
+      "id": "frame_thickness",
+      "label": "Épaisseur des traits (px)",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "default": 2
+    },
+    {
+      "type": "range",
+      "id": "frame_radius",
+      "label": "Arrondi des angles (px)",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "default": 10
+    },
+
+    {
+      "type": "header",
+      "content": "Couleurs"
+    },
+    {
+      "type": "color",
+      "id": "page_bg",
+      "label": "Fond autour de la section",
+      "default": "#F8F5F0"
+    },
+    {
+      "type": "color",
+      "id": "panel_bg",
+      "label": "Fond du panneau texte",
+      "default": "#36AD54"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Couleur des textes",
+      "default": "#101010"
+    },
+
+    {
+      "type": "header",
+      "content": "Bouton"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Texte du bouton",
+      "default": "Découvrir nos produits"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Lien du bouton"
+    },
+    {
+      "type": "color",
+      "id": "button_bg",
+      "label": "Fond du bouton",
+      "default": "#36AD54"
+    },
+    {
+      "type": "color",
+      "id": "button_text",
+      "label": "Texte du bouton",
+      "default": "#101010"
+    },
+    {
+      "type": "color",
+      "id": "button_border",
+      "label": "Contour du bouton",
+      "default": "#101010"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_bg",
+      "label": "Fond du bouton au survol",
+      "default": "#101010"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_text",
+      "label": "Texte du bouton au survol",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "range",
+      "id": "button_font_size",
+      "label": "Taille texte bouton (px)",
+      "min": 12,
+      "max": 22,
+      "step": 1,
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "button_radius",
+      "label": "Arrondi bouton (px)",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "default": 6
+    },
+    {
+      "type": "range",
+      "id": "button_padding_x",
+      "label": "Espace horizontal bouton (px)",
+      "min": 8,
+      "max": 50,
+      "step": 2,
+      "default": 22
+    },
+    {
+      "type": "range",
+      "id": "button_padding_y",
+      "label": "Espace vertical bouton (px)",
+      "min": 6,
+      "max": 30,
+      "step": 1,
+      "default": 12
+    }
+  ],
+  "presets": [
+    {
+      "name": "Orselyno - Notre mission"
+    }
+  ]
+}
+{% endschema %}
