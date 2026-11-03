@@ -9,6 +9,18 @@
  */
 {
   "sections": {
+    "breadcrumbsimpact_PQCdjq": {
+      "type": "breadcrumbsimpact",
+      "name": "Breadcrumbs Impact",
+      "settings": {
+        "bg_color": "#FDFDF4",
+        "link_color": "#777777",
+        "current_color": "#222222",
+        "font_size": 12,
+        "mobile_font_size": 10,
+        "padding_vertical": 0
+      }
+    },
     "main": {
       "type": "main-product",
       "blocks": {
@@ -549,6 +561,7 @@
     }
   },
   "order": [
+    "breadcrumbsimpact_PQCdjq",
     "main",
     "avtagicons_x9Ua7F",
     "media_with_text_4Qax7a",
